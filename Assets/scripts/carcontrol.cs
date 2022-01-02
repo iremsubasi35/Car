@@ -27,8 +27,15 @@ public class carcontrol : MonoBehaviour
     private List<Wheel> wheels;
     [SerializeField]
     private float inputX, inputY;
+    [SerializeField]
+    private int FrenGucu;
+    [SerializeField]
+    private int HızlanmaKademesi;
 
     public Vector3 centerOfMass;
+
+    public GameObject ArkaFar;
+    public Material[] ArkaFarMateryaller;
 
 
     void Start()
@@ -89,6 +96,8 @@ public class carcontrol : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            ArkaFar.GetComponent<MeshRenderer>().material = ArkaFarMateryaller[1];
+
             foreach (var wheel in wheels)
             {
                 wheel.collider.brakeTorque = 1000;
@@ -97,6 +106,7 @@ public class carcontrol : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
+            ArkaFar.GetComponent<MeshRenderer>().material = ArkaFarMateryaller[0];
             foreach (var wheel in wheels)
             {
                 wheel.collider.brakeTorque = 0;

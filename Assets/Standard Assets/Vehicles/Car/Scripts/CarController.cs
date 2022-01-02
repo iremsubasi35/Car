@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
 #pragma warning disable 649
 namespace UnityStandardAssets.Vehicles.Car
@@ -48,6 +50,10 @@ namespace UnityStandardAssets.Vehicles.Car
         private Rigidbody m_Rigidbody;
         private const float k_ReversingThreshold = 0.01f;
 
+        public GameObject[] ArkaFar›siklari;
+        public GameObject[] OnFar›siklari;
+        bool OnFarAcikmi;
+
         public bool Skidding { get; private set; }
         public float BrakeInput { get; private set; }
         public float CurrentSteerAngle{ get { return m_SteerAngle; }}
@@ -55,10 +61,22 @@ namespace UnityStandardAssets.Vehicles.Car
         public float MaxSpeed{get { return m_Topspeed; }}
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
+        // H›Z KADRAN› DE–›ﬁKENLER›
+        public Text mevcutHiz;
+        public Text mevcutVites;
+        int SonHiz;
+        public GameObject Kadran;
+        // N›TRO KADRAN DEG›SKENLER›
+        public Image Nitroslider;
+        public Text NitrodegerText;
+        float nitrodeger;
+        bool NitroDurumu=true;
+
 
         // Use this for initialization
         private void Start()
         {
+            OnFarAcikmi = false;
             m_WheelMeshLocalRotations = new Quaternion[4];
             for (int i = 0; i < 4; i++)
             {
@@ -70,6 +88,57 @@ namespace UnityStandardAssets.Vehicles.Car
 
             m_Rigidbody = GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
+            StartCoroutine(NitroBar());
+        }
+         void Update()
+        {
+
+            OnFarKontrol();
+            FrenYap();
+            HizKadranKontrol();
+            if(Input.GetKey(KeyCode.V))
+            {
+                if (!NitroDurumu)
+                {
+                    nitrodeger -= 2;
+                    NitrodegerText.text = nitrodeger.ToString();
+
+                    Nitroslider.fillAmount = nitrodeger / 100;
+
+                }
+                if (nitrodeger <= 100)
+                {
+                    nitrodeger = 0;
+                    NitroDurumu = true;
+                    return;
+                }
+            }
+            if (Input.GetKeyUp(KeyCode.V))
+            {
+                NitroDurumu = true;
+            }
+
+
+        }
+        IEnumerator NitroBar()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(0.3f);
+                if (NitroDurumu)
+                {
+                    nitrodeger += 2;
+                    NitrodegerText.text = nitrodeger.ToString();
+
+                    Nitroslider.fillAmount = nitrodeger / 100;
+
+                    if (nitrodeger>=100)
+                    {
+                        nitrodeger = 100;
+                        NitroDurumu = false;
+                    }
+                }
+            }
         }
 
 
@@ -82,11 +151,33 @@ namespace UnityStandardAssets.Vehicles.Car
             if (m_GearNum > 0 && f < downgearlimit)
             {
                 m_GearNum--;
+                mevcutVites.text = m_GearNum.ToString();
             }
 
             if (f > upgearlimit && (m_GearNum < (NoOfGears - 1)))
             {
                 m_GearNum++;
+                mevcutVites.text = m_GearNum.ToString();
+            }
+
+            if (SonHiz==0)
+            {
+                mevcutVites.text = "P";
+            }
+            if (SonHiz > 0)
+            {
+                if (m_GearNum == 0)
+                {
+                    mevcutVites.text = "1";
+                }
+                else
+                {
+                    mevcutVites.text = m_GearNum.ToString();
+                }
+            }
+            if (Input.GetAxis("Vertical")==-1)
+            {
+                mevcutVites.text = "R";
             }
         }
 
@@ -171,8 +262,62 @@ namespace UnityStandardAssets.Vehicles.Car
             CheckForWheelSpin();
             TractionControl();
         }
+        void OnFarKontrol()
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                OnFarAcikmi = !OnFarAcikmi;
+                foreach (var isiklar in OnFar›siklari)
+                {
+                    isiklar.SetActive(OnFarAcikmi);
+                }
+            }
 
+        }
+        void FrenYap()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+               // ArkaFar.GetComponent<MeshRenderer>().material = ArkaFarMateryaller[1];
 
+                foreach (var isiklar in ArkaFar›siklari)
+                {
+                    isiklar.SetActive(true);
+                }
+                for(int i = 0; i < 4; i++)
+                {
+                    m_WheelColliders[i].GetComponent<WheelCollider>().brakeTorque = m_BrakeTorque;
+                }
+
+            }
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                foreach (var isiklar in ArkaFar›siklari)
+                {
+                    isiklar.SetActive(true);
+                }
+                for (int i = 0; i < 4; i++)
+                {
+                    m_WheelColliders[i].GetComponent<WheelCollider>().brakeTorque = 0;
+                }
+            }
+        }
+        void HizKadranKontrol()
+        {
+            SonHiz = (int)CurrentSpeed;
+            mevcutHiz.text = CurrentSpeed.ToString();
+            if (CurrentSpeed == 0)
+            {
+                Quaternion rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+                Kadran.transform.localRotation = rotation;
+            }
+            else
+            {
+                Quaternion rotation = Quaternion.Euler(new Vector3(0f, 0f, -CurrentSpeed * 1.3f));
+                Kadran.transform.localRotation = rotation;
+            }
+
+        }
         private void CapSpeed()
         {
             float speed = m_Rigidbody.velocity.magnitude;
