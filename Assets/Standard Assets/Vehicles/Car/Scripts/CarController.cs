@@ -318,7 +318,7 @@ namespace UnityStandardAssets.Vehicles.Car
         void HizKadranKontrol()
         {
             SonHiz = (int)CurrentSpeed;
-            mevcutHiz.text = CurrentSpeed.ToString();
+            mevcutHiz.text = ((int)CurrentSpeed).ToString();
             if (CurrentSpeed == 0)
             {
                 Quaternion rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
