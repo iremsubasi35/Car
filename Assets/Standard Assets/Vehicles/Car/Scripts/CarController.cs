@@ -71,6 +71,9 @@ namespace UnityStandardAssets.Vehicles.Car
         public Text NitrodegerText;
         float nitrodeger;
         bool NitroDurumu=true;
+        // EGZOZ ÝÞLEMLERÝ
+        public GameObject NitroEfekt;
+        public AudioSource[] Sesler;
 
 
         // Use this for initialization
@@ -259,15 +262,20 @@ namespace UnityStandardAssets.Vehicles.Car
             {
                 if (!NitroDurumu)
                 {
+                    NitroEfekt.SetActive(true);
                     m_Rigidbody.velocity += 0.7f * m_Rigidbody.velocity.normalized;
                     nitrodeger -= 2;
                     NitrodegerText.text = "HAZIR";
 
                     Nitroslider.fillAmount = nitrodeger / 100;
-
+                    if (!Sesler[0].isPlaying)
+                    {
+                        Sesler[0].Play();
+                    }
                 }
-                if (nitrodeger <= 100)
+                if (nitrodeger <= 0)
                 {
+                    NitroEfekt.SetActive(false);
                     nitrodeger = 0;
                     NitroDurumu = true;
                     return;
@@ -275,6 +283,7 @@ namespace UnityStandardAssets.Vehicles.Car
             }
             if (Input.GetKeyUp(KeyCode.V))
             {
+                NitroEfekt.SetActive(false);
                 NitroDurumu = true;
             }
         }
