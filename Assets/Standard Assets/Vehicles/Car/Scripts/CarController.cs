@@ -96,29 +96,7 @@ namespace UnityStandardAssets.Vehicles.Car
             OnFarKontrol();
             FrenYap();
             HizKadranKontrol();
-            if(Input.GetKey(KeyCode.V))
-            {
-                if (!NitroDurumu)
-                {
-                    nitrodeger -= 2;
-                    NitrodegerText.text = nitrodeger.ToString();
-
-                    Nitroslider.fillAmount = nitrodeger / 100;
-
-                }
-                if (nitrodeger <= 100)
-                {
-                    nitrodeger = 0;
-                    NitroDurumu = true;
-                    return;
-                }
-            }
-            if (Input.GetKeyUp(KeyCode.V))
-            {
-                NitroDurumu = true;
-            }
-
-
+            NitroKullan();
         }
         IEnumerator NitroBar()
         {
@@ -128,7 +106,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 if (NitroDurumu)
                 {
                     nitrodeger += 2;
-                    NitrodegerText.text = nitrodeger.ToString();
+                    NitrodegerText.text ="DOLUYOR";
 
                     Nitroslider.fillAmount = nitrodeger / 100;
 
@@ -136,6 +114,7 @@ namespace UnityStandardAssets.Vehicles.Car
                     {
                         nitrodeger = 100;
                         NitroDurumu = false;
+                        NitrodegerText.text = "HAZIR";
                     }
                 }
             }
@@ -273,6 +252,31 @@ namespace UnityStandardAssets.Vehicles.Car
                 }
             }
 
+        }
+        void NitroKullan()
+        {
+            if (Input.GetKey(KeyCode.V))
+            {
+                if (!NitroDurumu)
+                {
+                    m_Rigidbody.velocity += 0.7f * m_Rigidbody.velocity.normalized;
+                    nitrodeger -= 2;
+                    NitrodegerText.text = "HAZIR";
+
+                    Nitroslider.fillAmount = nitrodeger / 100;
+
+                }
+                if (nitrodeger <= 100)
+                {
+                    nitrodeger = 0;
+                    NitroDurumu = true;
+                    return;
+                }
+            }
+            if (Input.GetKeyUp(KeyCode.V))
+            {
+                NitroDurumu = true;
+            }
         }
         void FrenYap()
         {
