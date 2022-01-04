@@ -1,0 +1,483 @@
+Using pre-set license
+Built from '2020.3/release' branch; Version is '2020.3.15f2 (6cf78cb77498) revision 7141260'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home Single Language; OS build 19043.1415; Version 2009; 64bit' Language: 'tr' Physical Memory: 7600 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.15f2\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/ASUS/Documents/GitHub/car/Car
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+61454
+Successfully changed project path to: C:/Users/ASUS/Documents/GitHub/car/Car
+C:/Users/ASUS/Documents/GitHub/car/Car
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 119.28 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.15f2 (6cf78cb77498)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.15f2/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/ASUS/Documents/GitHub/car/Car/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon(TM) Graphics (ID=0x1636)
+    Vendor:   
+    VRAM:     3800 MB
+    Driver:   27.20.22002.57
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.15f2/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.15f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.15f2/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56476
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.15f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.012466 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 80.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.993 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2995ms)
+		BeginReloadAssembly (135ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (3ms)
+		EndReloadAssembly (800ms)
+			LoadAssemblies (127ms)
+			RebuildTransferFunctionScriptingTraits (1ms)
+			SetupTypeCache (273ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (51ms)
+			SetupLoadedEditorAssemblies (340ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (80ms)
+				BeforeProcessingInitializeOnLoad (24ms)
+				ProcessInitializeOnLoadAttributes (179ms)
+				ProcessInitializeOnLoadMethodAttributes (49ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.030508 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.899 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1901ms)
+		BeginReloadAssembly (232ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (52ms)
+		EndReloadAssembly (1569ms)
+			LoadAssemblies (179ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (542ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (67ms)
+			SetupLoadedEditorAssemblies (649ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (149ms)
+				ProcessInitializeOnLoadAttributes (475ms)
+				ProcessInitializeOnLoadMethodAttributes (8ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.13 seconds
+Refreshing native plugins compatible for Editor in 1.46 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1662 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.2 MB.
+System memory in use after: 108.9 MB.
+
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 2248.
+Total: 7.940500 ms (FindLiveObjects: 0.628700 ms CreateObjectMapping: 0.092400 ms MarkObjects: 6.470300 ms  DeleteObjects: 0.744300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/sprite/KadranOk.png
+  artifactKey: Guid(526530db0e16c6343803fd042c2f42d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/sprite/KadranOk.png using Guid(526530db0e16c6343803fd042c2f42d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e882246f7d1c58c5fd114a855a4475e8') in 0.226000 seconds 
+  Import took 0.232921 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000741 seconds.
+  path: Assets/sprite/Kadran.png
+  artifactKey: Guid(e0533cc0439fcb2489be404961b1c311) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/sprite/Kadran.png using Guid(e0533cc0439fcb2489be404961b1c311) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cdb790422aaaf15046259b1d40d2fcb3') in 0.064458 seconds 
+  Import took 0.071936 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000308 seconds.
+  path: Assets/sprite/PanelOval.png
+  artifactKey: Guid(0e12485194e3d9d438562a9c109def4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/sprite/PanelOval.png using Guid(0e12485194e3d9d438562a9c109def4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '106c4826f1f011338c32bd82d5317b06') in 0.043189 seconds 
+  Import took 0.050652 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000576 seconds.
+  path: Assets/sprite/i.jpg
+  artifactKey: Guid(005c7ec94ea679f409d2732ed4d88fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/sprite/i.jpg using Guid(005c7ec94ea679f409d2732ed4d88fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '266052d3c41952526aa07b15c212e52d') in 0.070125 seconds 
+  Import took 0.077592 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000565 seconds.
+  path: Assets/sprite/nitro oval.png
+  artifactKey: Guid(8af2fc38494205d45ae53de14fc45c85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/sprite/nitro oval.png using Guid(8af2fc38494205d45ae53de14fc45c85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67adcf0cdaafba63dc0f4b8bfd4c75a1') in 0.051199 seconds 
+  Import took 0.058095 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000362 seconds.
+  path: Assets/sprite/maxresdefault.jpg
+  artifactKey: Guid(617e4877fb37c8c4eafcb23a41eaee58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/sprite/maxresdefault.jpg using Guid(617e4877fb37c8c4eafcb23a41eaee58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64bbc08b1d9dee88b5e53bcc75f198fe') in 0.058556 seconds 
+  Import took 0.065537 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000595 seconds.
+  path: Assets/sprite/7cb324-11.jpg
+  artifactKey: Guid(b75021752c137bf47a49c416a34b588c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/sprite/7cb324-11.jpg using Guid(b75021752c137bf47a49c416a34b588c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f649398dfba9c258be3c0abdb49a7cc') in 0.056777 seconds 
+  Import took 0.065045 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000590 seconds.
+  path: Assets/sprite/panelcar.jpg
+  artifactKey: Guid(c6a6e944634097947a3dac3f454d7efc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/sprite/panelcar.jpg using Guid(c6a6e944634097947a3dac3f454d7efc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b48986c416a5cd595386e6ed8d3fc896') in 0.053480 seconds 
+  Import took 0.060825 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.535280 seconds.
+  path: Assets/Zemin_Objeleri/pavement 01/diffuse.tga
+  artifactKey: Guid(dedb84fe0b9b97b40a9a905af06c8962) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 01/diffuse.tga using Guid(dedb84fe0b9b97b40a9a905af06c8962) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46ef110a3abf9404f72bba4b8a650ed0') in 0.042308 seconds 
+  Import took 0.049839 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000587 seconds.
+  path: Assets/Zemin_Objeleri/pavement 01/pavement pattern 01.mat
+  artifactKey: Guid(6641b0d643f3f3641a48f1a476baf386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 01/pavement pattern 01.mat using Guid(6641b0d643f3f3641a48f1a476baf386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c6c4ed587f3318f3c5c43bdf049b166') in 0.361246 seconds 
+  Import took 0.368032 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000749 seconds.
+  path: Assets/Zemin_Objeleri/pavement 01/normal.tga
+  artifactKey: Guid(cd4aae3f35de44542b5692405c3a551f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 01/normal.tga using Guid(cd4aae3f35de44542b5692405c3a551f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3e3ecb32eea18c9998180bcb248344e') in 0.044976 seconds 
+  Import took 0.053989 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000454 seconds.
+  path: Assets/Zemin_Objeleri/pavement 01/preview.jpg
+  artifactKey: Guid(0e9d542dd3280aa48b239f99ca93afea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 01/preview.jpg using Guid(0e9d542dd3280aa48b239f99ca93afea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b5b0ee4b54c9bcb87f32d1c28a18042') in 0.017682 seconds 
+  Import took 0.022979 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012845 seconds.
+  path: Assets/Zemin_Objeleri/pavement 01/preview.jpg
+  artifactKey: Guid(0e9d542dd3280aa48b239f99ca93afea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 01/preview.jpg using Guid(0e9d542dd3280aa48b239f99ca93afea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b5b0ee4b54c9bcb87f32d1c28a18042') in 0.012974 seconds 
+  Import took 0.018317 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.408758 seconds.
+  path: Assets/Zemin_Objeleri/pavement 07/diffuse.tga
+  artifactKey: Guid(5516ec27a4f82904785127735f9f90c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 07/diffuse.tga using Guid(5516ec27a4f82904785127735f9f90c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '303f745065a3fb7d7b097fb9105e41c8') in 0.036033 seconds 
+  Import took 0.044117 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001976 seconds.
+  path: Assets/Zemin_Objeleri/pavement 07/normal.tga
+  artifactKey: Guid(1e7f5bbfa2c9f5a45a2ed1d63d102094) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 07/normal.tga using Guid(1e7f5bbfa2c9f5a45a2ed1d63d102094) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e60bf78ce658eeb3ce137c718c0dd0aa') in 0.034337 seconds 
+  Import took 0.043558 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000679 seconds.
+  path: Assets/Zemin_Objeleri/pavement 07/preview.jpg
+  artifactKey: Guid(d7649a96db901d74fbe5c9279aa52a07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 07/preview.jpg using Guid(d7649a96db901d74fbe5c9279aa52a07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cc1ba7af2bb022e7152b3441db18c0a') in 0.015422 seconds 
+  Import took 0.022093 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000417 seconds.
+  path: Assets/Zemin_Objeleri/pavement 07/pavement pattern 07.mat
+  artifactKey: Guid(5c8a4e1f248ae9f4fab83ef327ff3898) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 07/pavement pattern 07.mat using Guid(5c8a4e1f248ae9f4fab83ef327ff3898) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26f14e8462edbd53a27716accf9787c6') in 0.033324 seconds 
+  Import took 0.039703 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.471882 seconds.
+  path: Assets/Zemin_Objeleri/pavement 08/diffuse.tga
+  artifactKey: Guid(7a983a57608c4a04e974243938fa515c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 08/diffuse.tga using Guid(7a983a57608c4a04e974243938fa515c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e83db003afa8ba21798ac24a54594b6d') in 0.038738 seconds 
+  Import took 0.046016 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000894 seconds.
+  path: Assets/Zemin_Objeleri/pavement 08/normal.tga
+  artifactKey: Guid(876cae77038db6e4da369c972bb7cbad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 08/normal.tga using Guid(876cae77038db6e4da369c972bb7cbad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e843ac6254f4a9ec1c768688c11631ef') in 0.031332 seconds 
+  Import took 0.039199 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000564 seconds.
+  path: Assets/Zemin_Objeleri/pavement 08/preview.jpg
+  artifactKey: Guid(fdaa4cdddcca0404c89cbb4de906988d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 08/preview.jpg using Guid(fdaa4cdddcca0404c89cbb4de906988d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '451fcffb35d19c6a79873518f860b70e') in 0.022310 seconds 
+  Import took 0.031250 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000587 seconds.
+  path: Assets/Zemin_Objeleri/pavement 08/pavement pattern 08.mat
+  artifactKey: Guid(0c26b4c84ab19ad458dc8f02ac1747a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 08/pavement pattern 08.mat using Guid(0c26b4c84ab19ad458dc8f02ac1747a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '149d3bd55b0edc89b860643641ab2e97') in 0.033074 seconds 
+  Import took 0.039982 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.472506 seconds.
+  path: Assets/Zemin_Objeleri/pavement 15/diffuse.tga
+  artifactKey: Guid(1de59d7ec30d5c444a8db3a8f7c09cd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 15/diffuse.tga using Guid(1de59d7ec30d5c444a8db3a8f7c09cd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be7017f52a90c8f69bbe66cd7c8e6043') in 0.038516 seconds 
+  Import took 0.050699 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001150 seconds.
+  path: Assets/Zemin_Objeleri/pavement 15/pavement pattern 15.mat
+  artifactKey: Guid(c9673221a0053a6438c4de0cfe772d7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 15/pavement pattern 15.mat using Guid(c9673221a0053a6438c4de0cfe772d7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dd184289d02d0b75fe0d57541bedb82') in 0.040353 seconds 
+  Import took 0.049099 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000416 seconds.
+  path: Assets/Zemin_Objeleri/pavement 15/normal.tga
+  artifactKey: Guid(7d3a46e7953c82c49b867742a2ad70f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 15/normal.tga using Guid(7d3a46e7953c82c49b867742a2ad70f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca245ee6a5a55cb28f0b74720fa46b06') in 0.018774 seconds 
+  Import took 0.026954 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000539 seconds.
+  path: Assets/Zemin_Objeleri/pavement 15/preview.jpg
+  artifactKey: Guid(f56ef9cbbcd9274409448f81b0a6c424) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 15/preview.jpg using Guid(f56ef9cbbcd9274409448f81b0a6c424) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1da6e0058208922c486f9ba8c945fb10') in 0.020552 seconds 
+  Import took 0.024967 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.580871 seconds.
+  path: Assets/Zemin_Objeleri/pavement 16/diffuse.tga
+  artifactKey: Guid(ff181c2a73babae4b8a4bc9c5db84216) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 16/diffuse.tga using Guid(ff181c2a73babae4b8a4bc9c5db84216) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee695a2aa914110eb26bcd1b8d386fed') in 0.036076 seconds 
+  Import took 0.043872 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000596 seconds.
+  path: Assets/Zemin_Objeleri/pavement 16/normal.tga
+  artifactKey: Guid(f7fe81d495da2334eb519b6e3578003c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 16/normal.tga using Guid(f7fe81d495da2334eb519b6e3578003c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fcf11a2ef0c15eee12001afb9c015d1') in 0.052787 seconds 
+  Import took 0.059192 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000475 seconds.
+  path: Assets/Zemin_Objeleri/pavement 16/preview.jpg
+  artifactKey: Guid(ffadca88a1dcabf4a8a93105a4ac19d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 16/preview.jpg using Guid(ffadca88a1dcabf4a8a93105a4ac19d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77378d11ed20c1f8848dbf9f602f13cc') in 0.014445 seconds 
+  Import took 0.021543 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000506 seconds.
+  path: Assets/Zemin_Objeleri/pavement 16/pavement pattern 16.mat
+  artifactKey: Guid(a7d5e4b360e60074c9e71d4e8f69864f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 16/pavement pattern 16.mat using Guid(a7d5e4b360e60074c9e71d4e8f69864f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a62a12c45e25231e04cbf87ce386d017') in 0.030284 seconds 
+  Import took 0.035295 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.310416 seconds.
+  path: Assets/Zemin_Objeleri/pavement 20/diffuse.tga
+  artifactKey: Guid(76a07bcaabfcbc540827c83b89b5d443) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 20/diffuse.tga using Guid(76a07bcaabfcbc540827c83b89b5d443) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ce26eb1bde3cef8d0c3de690a8ba8d4') in 0.026782 seconds 
+  Import took 0.034477 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000631 seconds.
+  path: Assets/Zemin_Objeleri/pavement 20/normal.tga
+  artifactKey: Guid(fa98c104902c6a94d9bcf97cf14c6ec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 20/normal.tga using Guid(fa98c104902c6a94d9bcf97cf14c6ec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81b133b08fd5d73166ca6da649835bef') in 0.037908 seconds 
+  Import took 0.045283 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000680 seconds.
+  path: Assets/Zemin_Objeleri/pavement 20/pavement pattern 20.mat
+  artifactKey: Guid(b7ebef28311bd174ab0318791f5663aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 20/pavement pattern 20.mat using Guid(b7ebef28311bd174ab0318791f5663aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31a089ec7f880b8a6a554affe2ed76bb') in 0.033678 seconds 
+  Import took 0.040742 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000668 seconds.
+  path: Assets/Zemin_Objeleri/pavement 20/preview.jpg
+  artifactKey: Guid(5f005dce97ae63e41b83624804dd1a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Zemin_Objeleri/pavement 20/preview.jpg using Guid(5f005dce97ae63e41b83624804dd1a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c71cc68e9fc8414bb798911a9435b60') in 0.016807 seconds 
+  Import took 0.023488 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.176029 seconds.
+  path: Assets/Modeller/Citler
+  artifactKey: Guid(7494e512448ff504f8f51fa2eb77a7b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modeller/Citler using Guid(7494e512448ff504f8f51fa2eb77a7b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6d3ff7750f5f881061c3fd541bbe42a') in 0.007980 seconds 
+  Import took 0.011797 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011616 seconds.
+  path: Assets/Modeller/Citler
+  artifactKey: Guid(7494e512448ff504f8f51fa2eb77a7b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modeller/Citler using Guid(7494e512448ff504f8f51fa2eb77a7b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6d3ff7750f5f881061c3fd541bbe42a') in 0.002795 seconds 
+  Import took 0.007077 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.995422 seconds.
+  path: Assets/Modeller/Citler/Prefabs/Building 2.prefab
+  artifactKey: Guid(9b4a1426414c58a40a1b8b95fd707cd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modeller/Citler/Prefabs/Building 2.prefab using Guid(9b4a1426414c58a40a1b8b95fd707cd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8981d2af19869caf99e9aeb3d580ea6d') in 0.049834 seconds 
+  Import took 0.057549 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000752 seconds.
+  path: Assets/Modeller/Citler/Prefabs/House 2.prefab
+  artifactKey: Guid(88b23446139174e47b557d8c9be23c4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modeller/Citler/Prefabs/House 2.prefab using Guid(88b23446139174e47b557d8c9be23c4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '111d3bc4defafdcf6ad8807e7a00d7b3') in 0.018405 seconds 
+  Import took 0.024624 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000529 seconds.
+  path: Assets/Modeller/Citler/Prefabs/House 1.prefab
+  artifactKey: Guid(138b9ad3916809649af20405c814e0fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modeller/Citler/Prefabs/House 1.prefab using Guid(138b9ad3916809649af20405c814e0fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '647b3cde181e1071bfadfd5aaef280f1') in 0.016202 seconds 
+  Import took 0.020867 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.469450 seconds.
+  path: Assets/Modeller/Citler/Prefabs/Fences
+  artifactKey: Guid(192fa2a7867d74d4baafdd136273f614) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modeller/Citler/Prefabs/Fences using Guid(192fa2a7867d74d4baafdd136273f614) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '067c523e231bf2e893a3610252eac42e') in 0.009206 seconds 
+  Import took 0.014726 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001649 seconds.
+  path: Assets/Modeller/Citler/Prefabs/Fences
+  artifactKey: Guid(192fa2a7867d74d4baafdd136273f614) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modeller/Citler/Prefabs/Fences using Guid(192fa2a7867d74d4baafdd136273f614) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '067c523e231bf2e893a3610252eac42e') in 0.005279 seconds 
+  Import took 0.012744 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.053380 seconds.
+  path: Assets/Modeller/Citler/Prefabs/Fences/Fence.prefab
+  artifactKey: Guid(a21d0c2cd8c6b4e4daf8cab6a55bf64f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modeller/Citler/Prefabs/Fences/Fence.prefab using Guid(a21d0c2cd8c6b4e4daf8cab6a55bf64f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13069818e2a8c5a7334bb57fc93891cd') in 0.551361 seconds 
+  Import took 0.557446 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000500 seconds.
+  path: Assets/Modeller/Citler/Prefabs/Fences/Fence_1.prefab
+  artifactKey: Guid(8bf3bd473d7b92f47bb636d55329d157) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modeller/Citler/Prefabs/Fences/Fence_1.prefab using Guid(8bf3bd473d7b92f47bb636d55329d157) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff7ee8d5700dc7ac7fb6388e03409d88') in 0.060312 seconds 
+  Import took 0.068343 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000692 seconds.
+  path: Assets/Modeller/Citler/Prefabs/Fences/Fence_2.prefab
+  artifactKey: Guid(eaeed1da77053d143becc427c8789613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modeller/Citler/Prefabs/Fences/Fence_2.prefab using Guid(eaeed1da77053d143becc427c8789613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31e673d9ac802298998d164abfd01f86') in 0.022659 seconds 
+  Import took 0.030642 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002176 seconds.
+  path: Assets/Modeller/Citler/Prefabs/Fences/Steps.prefab
+  artifactKey: Guid(c8cd1f095dc3aaf46acf55320decc59a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modeller/Citler/Prefabs/Fences/Steps.prefab using Guid(c8cd1f095dc3aaf46acf55320decc59a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7caa20c0d8a5e8f7d8b19a8f45906e7') in 0.013594 seconds 
+  Import took 0.023323 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

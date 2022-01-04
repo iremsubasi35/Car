@@ -36,3 +36,4 @@ Material:
     - _Scale: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 0}
     - _TranslucencyColor: {r: 0.78676474, g: 0.25055185, b: 0.09256055, a: 1}
+  m_BuildTextureStacks: []
