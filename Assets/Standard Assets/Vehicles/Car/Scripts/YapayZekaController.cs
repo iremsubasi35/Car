@@ -21,7 +21,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
     public class YapayZekaController : MonoBehaviour
     {
-        [SerializeField] private CarDriveYapayZeka m_CarDriveType = CarDriveYapayZeka.FourWheelDrive;
+        [SerializeField] private CarDriveTypeYapayZeka m_CarDriveType = CarDriveTypeYapayZeka.FourWheelDrive;
         [SerializeField] private WheelCollider[] m_WheelColliders = new WheelCollider[4];
         [SerializeField] private GameObject[] m_WheelMeshes = new GameObject[4];
         [SerializeField] private WheelEffects[] m_WheelEffects = new WheelEffects[4];
@@ -216,7 +216,7 @@ namespace UnityStandardAssets.Vehicles.Car
             float thrustTorque;
             switch (m_CarDriveType)
             {
-                case CarDriveYapayZeka.FourWheelDrive:
+                case CarDriveTypeYapayZeka.FourWheelDrive:
                     thrustTorque = accel * (m_CurrentTorque / 4f);
                     for (int i = 0; i < 4; i++)
                     {
@@ -224,12 +224,12 @@ namespace UnityStandardAssets.Vehicles.Car
                     }
                     break;
 
-                case CarDriveYapayZeka.FrontWheelDrive:
+                case CarDriveTypeYapayZeka.FrontWheelDrive:
                     thrustTorque = accel * (m_CurrentTorque / 2f);
                     m_WheelColliders[0].motorTorque = m_WheelColliders[1].motorTorque = thrustTorque;
                     break;
 
-                case CarDriveYapayZeka.RearWheelDrive:
+                case CarDriveTypeYapayZeka.RearWheelDrive:
                     thrustTorque = accel * (m_CurrentTorque / 2f);
                     m_WheelColliders[2].motorTorque = m_WheelColliders[3].motorTorque = thrustTorque;
                     break;
