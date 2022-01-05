@@ -15,11 +15,11 @@ C:/Users/ASUS/Documents/GitHub/car/Car
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50760
+50882
 Successfully changed project path to: C:/Users/ASUS/Documents/GitHub/car/Car
 C:/Users/ASUS/Documents/GitHub/car/Car
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 93.03 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 100.66 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.15f2 (6cf78cb77498)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.15f2/Editor/Data/Resources/UnitySubsystems
@@ -35,89 +35,89 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.15f2/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.15f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.15f2/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56424
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56336
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.15f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002990 seconds.
+Registered in 0.002786 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 80.34 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 105.45 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.620 seconds
+- Completed reload, in  1.727 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1621ms)
-		BeginReloadAssembly (85ms)
+	ReloadAssembly (1728ms)
+		BeginReloadAssembly (91ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (646ms)
-			LoadAssemblies (81ms)
+		EndReloadAssembly (796ms)
+			LoadAssemblies (87ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (245ms)
+			SetupTypeCache (299ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (49ms)
-			SetupLoadedEditorAssemblies (262ms)
+			RebuildScriptCaches (57ms)
+			SetupLoadedEditorAssemblies (303ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (81ms)
-				BeforeProcessingInitializeOnLoad (16ms)
-				ProcessInitializeOnLoadAttributes (123ms)
-				ProcessInitializeOnLoadMethodAttributes (36ms)
+				RefreshPlugins (106ms)
+				BeforeProcessingInitializeOnLoad (22ms)
+				ProcessInitializeOnLoadAttributes (130ms)
+				ProcessInitializeOnLoadMethodAttributes (37ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005269 seconds.
+Registered in 0.008178 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.70 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.89 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.914 seconds
+- Completed reload, in  2.058 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1915ms)
-		BeginReloadAssembly (253ms)
+	ReloadAssembly (2061ms)
+		BeginReloadAssembly (275ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
+			DisableScriptedObjects (13ms)
 			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
+			ReleaseScriptingObjects (1ms)
 			CreateAndSetChildDomain (59ms)
-		EndReloadAssembly (1561ms)
-			LoadAssemblies (167ms)
+		EndReloadAssembly (1684ms)
+			LoadAssemblies (190ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (496ms)
+			SetupTypeCache (573ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (75ms)
-			SetupLoadedEditorAssemblies (685ms)
+			RebuildScriptCaches (61ms)
+			SetupLoadedEditorAssemblies (707ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (8ms)
+				InitializePlatformSupportModulesInManaged (10ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (149ms)
-				ProcessInitializeOnLoadAttributes (501ms)
-				ProcessInitializeOnLoadMethodAttributes (7ms)
-				AfterProcessingInitializeOnLoad (16ms)
+				BeforeProcessingInitializeOnLoad (164ms)
+				ProcessInitializeOnLoadAttributes (517ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (7ms)
 				EditorAssembliesLoaded (1ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (10ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.16 seconds
-Refreshing native plugins compatible for Editor in 1.11 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.15 seconds
+Refreshing native plugins compatible for Editor in 6.03 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1662 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 109.8 MB.
 System memory in use after: 109.5 MB.
 
 Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 2249.
-Total: 7.851000 ms (FindLiveObjects: 0.642600 ms CreateObjectMapping: 0.094000 ms MarkObjects: 6.206700 ms  DeleteObjects: 0.900200 ms)
+Total: 7.415100 ms (FindLiveObjects: 0.656900 ms CreateObjectMapping: 0.105000 ms MarkObjects: 5.804500 ms  DeleteObjects: 0.844000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -131,65 +131,9 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Cars/bugatti/Material/Mat.7.mat
-  artifactKey: Guid(7863bd78f22c6bd42a72266fffb940cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Cars/bugatti/Material/Mat.7.mat using Guid(7863bd78f22c6bd42a72266fffb940cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7856da881f2e435ea7f8a9e75093035e') in 0.254063 seconds 
-  Import took 0.263578 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000742 seconds.
-  path: Assets/Cars/bugatti/bugatti.fbx
-  artifactKey: Guid(310f196a04bdaae43ae552e53096d718) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Cars/bugatti/bugatti.fbx using Guid(310f196a04bdaae43ae552e53096d718) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f89f54b6e8a8142012816c791bd5573') in 1.161356 seconds 
-  Import took 1.172373 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000628 seconds.
-  path: Assets/Cars/bugatti/Material/Aynalar.mat
-  artifactKey: Guid(967d3cc0fe4fcf841a90b3d4f8d8f88d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Cars/bugatti/Material/Aynalar.mat using Guid(967d3cc0fe4fcf841a90b3d4f8d8f88d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '468ae7a530e194d5beebfae407c1eb84') in 0.022926 seconds 
-  Import took 0.028828 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000305 seconds.
   path: Assets/Cars/bugatti/bugatti.prefab
   artifactKey: Guid(ff27637ff095408458ae122567451415) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Cars/bugatti/bugatti.prefab using Guid(ff27637ff095408458ae122567451415) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '218fff21d183e1e37f5c8ad5512e7c23') in 0.054461 seconds 
-  Import took 0.059984 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000478 seconds.
-  path: Assets/Cars/bugatti/Material/Mat.2.mat
-  artifactKey: Guid(535aa6b36e8b0704da9835e58516eeee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Cars/bugatti/Material/Mat.2.mat using Guid(535aa6b36e8b0704da9835e58516eeee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd341c003a3241d6b72f1257d9e8cccfd') in 0.026766 seconds 
-  Import took 0.033603 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000326 seconds.
-  path: Assets/Cars/bugatti/Material/Mat.11.mat
-  artifactKey: Guid(7ec96dd9da8cd104497070bf52ada520) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Cars/bugatti/Material/Mat.11.mat using Guid(7ec96dd9da8cd104497070bf52ada520) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b62dd7c658dbd4ddb087aceedabb2d4') in 0.035036 seconds 
-  Import took 0.040426 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000289 seconds.
-  path: Assets/Cars/bugatti/Material/Govde.mat
-  artifactKey: Guid(fdd48194727c3574aa2910e03192093c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Cars/bugatti/Material/Govde.mat using Guid(fdd48194727c3574aa2910e03192093c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3111f52a485e76ed0d79c54e2180954') in 0.035316 seconds 
-  Import took 0.039197 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000297 seconds.
-  path: Assets/Cars/bugatti/Material/kirmizi.mat
-  artifactKey: Guid(0e3605ee7e17b6343931f4c8e08686dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Cars/bugatti/Material/kirmizi.mat using Guid(0e3605ee7e17b6343931f4c8e08686dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd957021b2241f46f5766774535a03554') in 0.015696 seconds 
-  Import took 0.019560 seconds .
+Start importing Assets/Cars/bugatti/bugatti.prefab using Guid(ff27637ff095408458ae122567451415) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '952f268e47bd9354a0c38135dbbdd68d') in 0.391347 seconds 
+  Import took 0.406651 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
