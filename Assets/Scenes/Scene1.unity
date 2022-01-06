@@ -38183,18 +38183,6 @@ Transform:
   m_Father: {fileID: 42710073}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &720641304 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 140016712299136284, guid: de7fb29edb0ee1c4e9b9abd5e372e90d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1518636443}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70852dc981465ea48bb527b9e33a87fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &720699075
 GameObject:
   m_ObjectHideFlags: 0
@@ -55367,8 +55355,8 @@ MonoBehaviour:
   m_RevRangeBoundary: 1
   m_SlipLimit: 0.3
   m_BrakeTorque: 20000
-  "ArkaFar\u0130siklari": []
-  "OnFar\u0130siklari": []
+  "ArkaFar\xDDsiklari": []
+  "OnFar\xDDsiklari": []
   mevcutHiz: {fileID: 0}
   mevcutVites: {fileID: 0}
   Kadran: {fileID: 0}
@@ -57644,6 +57632,7 @@ GameObject:
   - component: {fileID: 973589967}
   - component: {fileID: 973589979}
   - component: {fileID: 973589973}
+  - component: {fileID: 984332360}
   m_Layer: 0
   m_Name: Car
   m_TagString: Player
@@ -57651,6 +57640,47 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &984332360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984332359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ecc2d5bc87cc10468d434cbed531cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CarDriveType: 2
+  m_WheelColliders:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_WheelMeshes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_WheelEffects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
+  m_MaximumSteerAngle: 0
+  m_SteerHelper: 0
+  m_TractionControl: 0
+  m_FullTorqueOverAllWheels: 0
+  m_ReverseTorque: 0
+  m_MaxHandbrakeTorque: 0
+  m_Downforce: 100
+  m_SpeedType: 0
+  m_Topspeed: 200
+  m_RevRangeBoundary: 1
+  m_SlipLimit: 0
+  m_BrakeTorque: 0
 --- !u!1 &984332361
 GameObject:
   m_ObjectHideFlags: 0
@@ -91431,6 +91461,7 @@ GameObject:
   - component: {fileID: 1590111511}
   - component: {fileID: 1590111510}
   - component: {fileID: 1590111515}
+  - component: {fileID: 1590111516}
   m_Layer: 0
   m_Name: samecar
   m_TagString: Untagged
@@ -91481,7 +91512,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590111509}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea65b38d485c374caa584a03f1de571, type: 3}
   m_Name: 
@@ -91515,12 +91546,8 @@ MonoBehaviour:
   m_RevRangeBoundary: 1
   m_SlipLimit: 0.3
   m_BrakeTorque: 20000
-  "ArkaFar\u0130siklari":
-  - {fileID: 0}
-  - {fileID: 0}
-  "OnFar\u0130siklari":
-  - {fileID: 0}
-  - {fileID: 0}
+  "ArkaFar\xDDsiklari": []
+  "OnFar\xDDsiklari": []
   mevcutHiz: {fileID: 8884531281660062678}
   mevcutVites: {fileID: 8884531280794548475}
   Kadran: {fileID: 8884531281747358753}
@@ -91554,7 +91581,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590111509}
   m_LocalRotation: {x: -0, y: -0.6679781, z: -0, w: 0.7441809}
-  m_LocalPosition: {x: 414.03857, y: 0.21, z: 210.36472}
+  m_LocalPosition: {x: 414.03857, y: 0.11, z: 210.36472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410915995}
@@ -91667,6 +91694,47 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1590111516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590111509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ecc2d5bc87cc10468d434cbed531cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CarDriveType: 2
+  m_WheelColliders:
+  - {fileID: 1094274359}
+  - {fileID: 635637599}
+  - {fileID: 667803017}
+  - {fileID: 1017166876}
+  m_WheelMeshes:
+  - {fileID: 1518429022}
+  - {fileID: 721545716}
+  - {fileID: 913990982}
+  - {fileID: 1532957338}
+  m_WheelEffects:
+  - {fileID: 1094274358}
+  - {fileID: 635637598}
+  - {fileID: 667803016}
+  - {fileID: 1017166873}
+  m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
+  m_MaximumSteerAngle: 0
+  m_SteerHelper: 0.6
+  m_TractionControl: 0
+  m_FullTorqueOverAllWheels: 2500
+  m_ReverseTorque: 500
+  m_MaxHandbrakeTorque: 100
+  m_Downforce: 100
+  m_SpeedType: 0
+  m_Topspeed: 200
+  m_RevRangeBoundary: 1
+  m_SlipLimit: 0
+  m_BrakeTorque: 20000
 --- !u!1 &1590729220
 GameObject:
   m_ObjectHideFlags: 0
@@ -117117,6 +117185,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3134847789052774612, guid: ff27637ff095408458ae122567451415,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8251482989311271452, guid: ff27637ff095408458ae122567451415,
         type: 3}
       propertyPath: m_RootOrder
@@ -117140,22 +117213,22 @@ PrefabInstance:
     - target: {fileID: 8251482989311271452, guid: ff27637ff095408458ae122567451415,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071079
       objectReference: {fileID: 0}
     - target: {fileID: 8251482989311271452, guid: ff27637ff095408458ae122567451415,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8251482989311271452, guid: ff27637ff095408458ae122567451415,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.70710576
       objectReference: {fileID: 0}
     - target: {fileID: 8251482989311271452, guid: ff27637ff095408458ae122567451415,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8251482989311271452, guid: ff27637ff095408458ae122567451415,
         type: 3}
@@ -117165,7 +117238,7 @@ PrefabInstance:
     - target: {fileID: 8251482989311271452, guid: ff27637ff095408458ae122567451415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 8251482989311271452, guid: ff27637ff095408458ae122567451415,
         type: 3}
@@ -117180,7 +117253,7 @@ PrefabInstance:
     - target: {fileID: 8775537253341722790, guid: ff27637ff095408458ae122567451415,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff27637ff095408458ae122567451415, type: 3}
@@ -117302,6 +117375,47 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1285401074048469855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285401074048469852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ecc2d5bc87cc10468d434cbed531cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CarDriveType: 2
+  m_WheelColliders:
+  - {fileID: 1094274359}
+  - {fileID: 635637599}
+  - {fileID: 667803017}
+  - {fileID: 1017166876}
+  m_WheelMeshes:
+  - {fileID: 1518429022}
+  - {fileID: 721545716}
+  - {fileID: 913990982}
+  - {fileID: 1532957338}
+  m_WheelEffects:
+  - {fileID: 1094274358}
+  - {fileID: 635637598}
+  - {fileID: 667803016}
+  - {fileID: 1017166873}
+  m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
+  m_MaximumSteerAngle: 0
+  m_SteerHelper: 0.6
+  m_TractionControl: 0
+  m_FullTorqueOverAllWheels: 2500
+  m_ReverseTorque: 500
+  m_MaxHandbrakeTorque: 100
+  m_Downforce: 100
+  m_SpeedType: 0
+  m_Topspeed: 200
+  m_RevRangeBoundary: 1
+  m_SlipLimit: 0
+  m_BrakeTorque: 20000
 --- !u!198 &3240404442606121420
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -126963,7 +127077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5cb22d331ef7d64796f917c6a455a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circuit: {fileID: 720641304}
+  circuit: {fileID: 42710072}
   lookAheadForTargetOffset: 15
   lookAheadForTargetFactor: 0.1
   lookAheadForSpeedOffset: 20
@@ -127011,7 +127125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fffafd711dc1dbc478a49705cfe1ce3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 4464764438741707323}
+  car: {fileID: 0}
 --- !u!114 &4464764438730416020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127052,7 +127166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459cec5b068041e44a60a6e3b6abb0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carController: {fileID: 4464764438741707323}
+  carController: {fileID: 4464764438741707325}
 --- !u!114 &4464764438730416026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127065,7 +127179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459cec5b068041e44a60a6e3b6abb0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carController: {fileID: 4464764438741707323}
+  carController: {fileID: 4464764438741707325}
 --- !u!114 &4464764438730416028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128398,7 +128512,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4464764438741707322}
-  m_LocalRotation: {x: -0, y: -0.68678176, z: -0, w: 0.7268637}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 414.98413, y: 0.16886276, z: 215.01976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -128410,7 +128524,7 @@ Transform:
   - {fileID: 4464764438741349956}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -86.752, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4464764438741349952
 Transform:
   m_ObjectHideFlags: 0
@@ -129109,16 +129223,16 @@ GameObject:
   - component: {fileID: 4464764438741349914}
   - component: {fileID: 4464764438736341274}
   - component: {fileID: 4464764438730416002}
-  - component: {fileID: 4464764438741707323}
   - component: {fileID: 4464764438741707325}
   - component: {fileID: 4464764438741707324}
+  - component: {fileID: 4464764438741707323}
   m_Layer: 0
   m_Name: WaypointCar
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &4464764438741707323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129128,38 +129242,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 4464764438741707322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ecc2d5bc87cc10468d434cbed531cad, type: 3}
+  m_Script: {fileID: 11500000, guid: d963df58504b69045b8d0d746ba6f777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CarDriveType: 2
-  m_WheelColliders:
-  - {fileID: 4464764438727207838}
-  - {fileID: 4464764438727207836}
-  - {fileID: 4464764438727207832}
-  - {fileID: 4464764438727207834}
-  m_WheelMeshes:
-  - {fileID: 4464764438741707390}
-  - {fileID: 4464764438741707388}
-  - {fileID: 4464764438741707386}
-  - {fileID: 4464764438741707384}
-  m_WheelEffects:
-  - {fileID: 1094274358}
-  - {fileID: 635637598}
-  - {fileID: 667803016}
-  - {fileID: 667803016}
-  m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 0
-  m_SteerHelper: 0
-  m_TractionControl: 0
-  m_FullTorqueOverAllWheels: 0
-  m_ReverseTorque: 0
-  m_MaxHandbrakeTorque: 0
-  m_Downforce: 100
-  m_SpeedType: 0
-  m_Topspeed: 200
-  m_RevRangeBoundary: 1
-  m_SlipLimit: 0
-  m_BrakeTorque: 0
+  m_CautiousSpeedFactor: 0.05
+  m_CautiousMaxAngle: 50
+  m_CautiousMaxDistance: 100
+  m_CautiousAngularVelocityFactor: 30
+  m_SteerSensitivity: 0.05
+  m_AccelSensitivity: 0.04
+  m_BrakeSensitivity: 1
+  m_LateralWanderDistance: 3
+  m_LateralWanderSpeed: 0.1
+  m_AccelWanderAmount: 0.1
+  m_AccelWanderSpeed: 0.1
+  m_BrakeCondition: 2
+  m_Driving: 1
+  m_Target: {fileID: 4464764438741349990}
+  m_StopWhenTargetReached: 0
+  m_ReachTargetThreshold: 2
 --- !u!114 &4464764438741707324
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -74,13 +74,13 @@ namespace UnityStandardAssets.Vehicles.Car
             m_WheelColliders[0].attachedRigidbody.centerOfMass = m_CentreOfMassOffset;
 
             m_MaxHandbrakeTorque = float.MaxValue;
-
-            m_Rigidbody = GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
-            
         }
-        
-        
+
+        private void OnEnable()
+        {
+            m_Rigidbody = GetComponent<Rigidbody>();
+        }
 
 
         private void GearChanging()
