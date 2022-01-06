@@ -4,16 +4,16 @@ using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Vehicles.Car
 {
-    [RequireComponent(typeof (CarController))]
+    [RequireComponent(typeof (YapayZekaController))]
     public class CarUserControl : MonoBehaviour
     {
-        private CarController m_Car; // the car controller we want to use
+        private YapayZekaController m_Car; // the car controller we want to use
 
 
         private void Awake()
         {
             // get the car controller
-            m_Car = GetComponent<CarController>();
+            m_Car = GetComponent<YapayZekaController>();
         }
 
 
