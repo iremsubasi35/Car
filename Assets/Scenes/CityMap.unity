@@ -19904,7 +19904,7 @@ PrefabInstance:
     - target: {fileID: 1538338754664820474, guid: 0d78da8bec8a80b4c99b754e2927388d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1538338754664820479, guid: 0d78da8bec8a80b4c99b754e2927388d,
         type: 3}
@@ -47102,7 +47102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &676064486
 Transform:
   m_ObjectHideFlags: 0
@@ -99982,7 +99982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1590111510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126936,7 +126936,7 @@ PrefabInstance:
     - target: {fileID: 8775537253341722790, guid: ff27637ff095408458ae122567451415,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff27637ff095408458ae122567451415, type: 3}
@@ -127065,29 +127065,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285401074048469852}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ecc2d5bc87cc10468d434cbed531cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_CarDriveType: 2
   m_WheelColliders:
-  - {fileID: 1094274359}
-  - {fileID: 635637599}
-  - {fileID: 667803017}
-  - {fileID: 1017166876}
+  - {fileID: 1200567775}
+  - {fileID: 1751791217}
+  - {fileID: 2110676773}
+  - {fileID: 2082239307}
   m_WheelMeshes:
-  - {fileID: 1518429022}
-  - {fileID: 721545716}
-  - {fileID: 913990982}
-  - {fileID: 1532957338}
+  - {fileID: 547394680}
+  - {fileID: 390973406}
+  - {fileID: 566349056}
+  - {fileID: 194611597}
   m_WheelEffects:
-  - {fileID: 1094274358}
-  - {fileID: 635637598}
-  - {fileID: 667803016}
-  - {fileID: 1017166873}
+  - {fileID: 1200567774}
+  - {fileID: 1751791216}
+  - {fileID: 2110676772}
+  - {fileID: 2082239304}
   m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 0
+  m_MaximumSteerAngle: 25
   m_SteerHelper: 0.6
   m_TractionControl: 0
   m_FullTorqueOverAllWheels: 2500
@@ -127136,7 +127136,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285401074048469852}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea65b38d485c374caa584a03f1de571, type: 3}
   m_Name: 
