@@ -275,9 +275,10 @@ namespace UnityStandardAssets.Vehicles.Car
         // this is used to add more grip in relation to speed
         private void AddDownForce()
         {
-            m_WheelColliders[0].attachedRigidbody.AddForce(-transform.up*m_Downforce*
+            m_WheelColliders[0].attachedRigidbody.AddForce(-transform.up * m_Downforce *
                                                          m_WheelColliders[0].attachedRigidbody.velocity.magnitude);
         }
+
 
 
         // checks if the wheels are spinning and is so does three things

@@ -9478,7 +9478,7 @@ Transform:
   - {fileID: 1295350960}
   - {fileID: 749966879}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &167704952
 GameObject:
@@ -19900,6 +19900,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bugatti_yapay
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538338754664820474, guid: 0d78da8bec8a80b4c99b754e2927388d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1538338754664820479, guid: 0d78da8bec8a80b4c99b754e2927388d,
         type: 3}
@@ -78005,6 +78010,36 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1 &1117509405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1117509406}
+  m_Layer: 0
+  m_Name: Araclar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1117509406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117509405}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 434.16757, y: 210.97383, z: -50.95325}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1120879682
 GameObject:
   m_ObjectHideFlags: 0
@@ -79015,6 +79050,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144893775}
   m_Mesh: {fileID: 4300002, guid: b28b82189f67b5645b03d796015f5ceb, type: 3}
+--- !u!1 &1148195595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1148195596}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1148195596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148195595}
+  m_LocalRotation: {x: -0, y: -0.6679781, z: -0, w: 0.7441809}
+  m_LocalPosition: {x: 414.03857, y: 0.11, z: 210.36472}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: -83.82201, z: 0}
 --- !u!1 &1150528911
 GameObject:
   m_ObjectHideFlags: 0
@@ -104358,6 +104423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1655447956}
   - component: {fileID: 1655447955}
+  - component: {fileID: 1655447957}
   m_Layer: 0
   m_Name: OyunKontrol
   m_TagString: Untagged
@@ -104395,6 +104461,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1655447957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655447954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca394f34df9f4f459dc6bdeecfd0c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Araclar:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SpawnPoint: {fileID: 1148195595}
 --- !u!1 &1655608108
 GameObject:
   m_ObjectHideFlags: 0
@@ -126791,7 +126876,7 @@ PrefabInstance:
     - target: {fileID: 8251482989311271452, guid: ff27637ff095408458ae122567451415,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8251482989311271452, guid: ff27637ff095408458ae122567451415,
         type: 3}
@@ -126851,7 +126936,7 @@ PrefabInstance:
     - target: {fileID: 8775537253341722790, guid: ff27637ff095408458ae122567451415,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff27637ff095408458ae122567451415, type: 3}
