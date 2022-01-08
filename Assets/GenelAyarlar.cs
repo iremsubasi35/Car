@@ -14,8 +14,8 @@ public class GenelAyarlar : MonoBehaviour
         pivot = arabam.transform.Find("Pivot");
         pivot = arabam.transform.Find("PozisyonAl");
 
-        // GameObject.Find("Main Camera").GetComponent<KameraGecisKontrol>().target[0] = pozisyon;
-        // GameObject.Find("Main Camera").GetComponent<KameraGecisKontrol>().target[1] = pivot;
+         GameObject.Find("MainCamera").GetComponent<KameraGecisKontrol>().target[0] = pozisyon;
+         GameObject.Find("Main Camera").GetComponent<KameraGecisKontrol>().target[1] = pivot;
     }
 
 
