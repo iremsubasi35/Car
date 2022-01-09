@@ -39,7 +39,7 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] private float m_RevRangeBoundary = 1f;
         [SerializeField] private float m_SlipLimit;
         [SerializeField] private float m_BrakeTorque;
-
+        
         private Quaternion[] m_WheelMeshLocalRotations;
         private Vector3 m_Prevpos, m_Pos;
         private float m_SteerAngle;
@@ -50,8 +50,8 @@ namespace UnityStandardAssets.Vehicles.Car
         private Rigidbody m_Rigidbody;
         private const float k_ReversingThreshold = 0.01f;
 
-        public GameObject[] ArkaFarÝsiklari;
-        public GameObject[] OnFarÝsiklari;
+        public GameObject[] ArkaFar;
+        public GameObject[] OnFar;
         bool OnFarAcikmi;
 
 
@@ -62,24 +62,31 @@ namespace UnityStandardAssets.Vehicles.Car
         public float MaxSpeed{get { return m_Topspeed; }}
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
-        // HÝZ KADRANÝ DEÐÝÞKENLERÝ
+        // Hï¿½Z KADRANï¿½ DEï¿½ï¿½ï¿½KENLERï¿½
         public Text mevcutHiz;
-        public Text mevcutVites;
+        // public Text mevcutVites;
         int SonHiz;
         public GameObject Kadran;
-        // NÝTRO KADRAN DEGÝSKENLERÝ
+        // Nï¿½TRO KADRAN DEGï¿½SKENLERï¿½
         public Image Nitroslider;
         public Text NitrodegerText;
         float nitrodeger;
         bool NitroDurumu = true;
-        // EGZOZ ÝÞLEMLERÝ
+        // EGZOZ ï¿½ï¿½LEMLERï¿½
         public GameObject NitroEfekt;
         public AudioSource[] Sesler;
+        public bool IsCurrentPlayer = false;
+
+        public Transform[] Target;
 
 
         // Use this for initialization
         private void Start()
         {
+            if (GetComponent<CarUserControl>())
+            {
+                IsCurrentPlayer = true;
+            }
             
             m_WheelMeshLocalRotations = new Quaternion[4];
             for (int i = 0; i < 4; i++)
@@ -93,7 +100,6 @@ namespace UnityStandardAssets.Vehicles.Car
         }
         void Update()
         {
-
             OnFarKontrol();
             FrenYap();
             HizKadranKontrol();
@@ -114,33 +120,33 @@ namespace UnityStandardAssets.Vehicles.Car
             if (m_GearNum > 0 && f < downgearlimit)
             {
                 m_GearNum--;
-                mevcutVites.text = m_GearNum.ToString();
+                UserInterface.master.GearText.text = m_GearNum.ToString();
             }
 
             if (f > upgearlimit && (m_GearNum < (NoOfGears - 1)))
             {
                 m_GearNum++;
-                mevcutVites.text = m_GearNum.ToString();
+                UserInterface.master.GearText.text = m_GearNum.ToString();
             }
 
             if (SonHiz == 0)
             {
-                mevcutVites.text = "P";
+                UserInterface.master.GearText.text = "P";
             }
             if (SonHiz > 0)
             {
                 if (m_GearNum == 0)
                 {
-                    mevcutVites.text = "1";
+                    UserInterface.master.GearText.text = "1";
                 }
                 else
                 {
-                    mevcutVites.text = m_GearNum.ToString();
+                    UserInterface.master.GearText.text = m_GearNum.ToString();
                 }
             }
             if (Input.GetAxis("Vertical") == -1)
             {
-                mevcutVites.text = "R";
+                UserInterface.master.GearText.text = "R";
             }
         }
 
@@ -228,10 +234,12 @@ namespace UnityStandardAssets.Vehicles.Car
         }
         void OnFarKontrol()
         {
+            if (!IsCurrentPlayer) return;
+            
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 OnFarAcikmi = !OnFarAcikmi;
-                foreach (var isiklar in OnFarÝsiklari)
+                foreach (var isiklar in OnFar)
                 {
                     isiklar.SetActive(OnFarAcikmi);
                 }
@@ -240,6 +248,8 @@ namespace UnityStandardAssets.Vehicles.Car
         }
         void NitroKullan()
         {
+            if (!IsCurrentPlayer) return;
+            
             if (Input.GetKey(KeyCode.V))
             {
                 if (!NitroDurumu)
@@ -271,11 +281,13 @@ namespace UnityStandardAssets.Vehicles.Car
         }
         void FrenYap()
         {
+            if (!IsCurrentPlayer) return;
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 // ArkaFar.GetComponent<MeshRenderer>().material = ArkaFarMateryaller[1];
 
-                foreach (var isiklar in ArkaFarÝsiklari)
+                foreach (var isiklar in ArkaFar)
                 {
                     isiklar.SetActive(true);
                 }
@@ -287,7 +299,7 @@ namespace UnityStandardAssets.Vehicles.Car
             }
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                foreach (var isiklar in ArkaFarÝsiklari)
+                foreach (var isiklar in ArkaFar)
                 {
                     isiklar.SetActive(true);
                 }
@@ -299,17 +311,19 @@ namespace UnityStandardAssets.Vehicles.Car
         }
         void HizKadranKontrol()
         {
+            if (!IsCurrentPlayer) return;
+            
             SonHiz = (int)CurrentSpeed;
-            mevcutHiz.text = ((int)CurrentSpeed).ToString();
+            UserInterface.master.CurrentSpeed.text = ((int)CurrentSpeed).ToString();
             if (CurrentSpeed == 0)
             {
                 Quaternion rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
-                Kadran.transform.localRotation = rotation;
+                UserInterface.master.SpeedoMeter.transform.localRotation = rotation;
             }
             else
             {
                 Quaternion rotation = Quaternion.Euler(new Vector3(0f, 0f, -CurrentSpeed * 1.3f));
-                Kadran.transform.localRotation = rotation;
+                UserInterface.master.SpeedoMeter.transform.localRotation = rotation;
             }
 
         }
