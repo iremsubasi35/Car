@@ -50,7 +50,10 @@ namespace UnityStandardAssets.Vehicles.Car
         private Rigidbody m_Rigidbody;
         private const float k_ReversingThreshold = 0.01f;
 
-        
+        public GameObject[] ArkaFar›siklari;
+        public GameObject[] OnFar›siklari;
+        bool OnFarAcikmi;
+
 
         public bool Skidding { get; private set; }
         public float BrakeInput { get; private set; }
@@ -59,7 +62,19 @@ namespace UnityStandardAssets.Vehicles.Car
         public float MaxSpeed{get { return m_Topspeed; }}
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
-        
+        // H›Z KADRAN› DE–›ﬁKENLER›
+        public Text mevcutHiz;
+        public Text mevcutVites;
+        int SonHiz;
+        public GameObject Kadran;
+        // N›TRO KADRAN DEG›SKENLER›
+        public Image Nitroslider;
+        public Text NitrodegerText;
+        float nitrodeger;
+        bool NitroDurumu = true;
+        // EGZOZ ›ﬁLEMLER›
+        public GameObject NitroEfekt;
+        public AudioSource[] Sesler;
 
 
         // Use this for initialization
@@ -76,32 +91,59 @@ namespace UnityStandardAssets.Vehicles.Car
             m_MaxHandbrakeTorque = float.MaxValue;
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
         }
+        void Update()
+        {
+
+            OnFarKontrol();
+            FrenYap();
+            HizKadranKontrol();
+            NitroKullan();
+        }
 
         private void OnEnable()
         {
             m_Rigidbody = GetComponent<Rigidbody>();
         }
 
-
         private void GearChanging()
         {
-            float f = Mathf.Abs(CurrentSpeed/MaxSpeed);
-            float upgearlimit = (1/(float) NoOfGears)*(m_GearNum + 1);
-            float downgearlimit = (1/(float) NoOfGears)*m_GearNum;
+            float f = Mathf.Abs(CurrentSpeed / MaxSpeed);
+            float upgearlimit = (1 / (float)NoOfGears) * (m_GearNum + 1);
+            float downgearlimit = (1 / (float)NoOfGears) * m_GearNum;
 
             if (m_GearNum > 0 && f < downgearlimit)
             {
                 m_GearNum--;
-                
+                mevcutVites.text = m_GearNum.ToString();
             }
 
             if (f > upgearlimit && (m_GearNum < (NoOfGears - 1)))
             {
                 m_GearNum++;
-               
+                mevcutVites.text = m_GearNum.ToString();
             }
 
+            if (SonHiz == 0)
+            {
+                mevcutVites.text = "P";
+            }
+            if (SonHiz > 0)
+            {
+                if (m_GearNum == 0)
+                {
+                    mevcutVites.text = "1";
+                }
+                else
+                {
+                    mevcutVites.text = m_GearNum.ToString();
+                }
+            }
+            if (Input.GetAxis("Vertical") == -1)
+            {
+                mevcutVites.text = "R";
+            }
         }
+
 
 
         // simple function to add a curved bias towards 1 for a value in the 0-1 range
@@ -184,11 +226,99 @@ namespace UnityStandardAssets.Vehicles.Car
             CheckForWheelSpin();
             TractionControl();
         }
-        
-        
-       
-        
-      
+        void OnFarKontrol()
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                OnFarAcikmi = !OnFarAcikmi;
+                foreach (var isiklar in OnFar›siklari)
+                {
+                    isiklar.SetActive(OnFarAcikmi);
+                }
+            }
+
+        }
+        void NitroKullan()
+        {
+            if (Input.GetKey(KeyCode.V))
+            {
+                if (!NitroDurumu)
+                {
+                    NitroEfekt.SetActive(true);
+                    m_Rigidbody.velocity += 0.7f * m_Rigidbody.velocity.normalized;
+                    nitrodeger -= 2;
+                    NitrodegerText.text = "HAZIR";
+
+                    Nitroslider.fillAmount = nitrodeger / 100;
+                    if (!Sesler[0].isPlaying)
+                    {
+                        Sesler[0].Play();
+                    }
+                }
+                if (nitrodeger <= 0)
+                {
+                    NitroEfekt.SetActive(false);
+                    nitrodeger = 0;
+                    NitroDurumu = true;
+                    return;
+                }
+            }
+            if (Input.GetKeyUp(KeyCode.V))
+            {
+                NitroEfekt.SetActive(false);
+                NitroDurumu = true;
+            }
+        }
+        void FrenYap()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                // ArkaFar.GetComponent<MeshRenderer>().material = ArkaFarMateryaller[1];
+
+                foreach (var isiklar in ArkaFar›siklari)
+                {
+                    isiklar.SetActive(true);
+                }
+                for (int i = 0; i < 4; i++)
+                {
+                    m_WheelColliders[i].GetComponent<WheelCollider>().brakeTorque = m_BrakeTorque;
+                }
+
+            }
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                foreach (var isiklar in ArkaFar›siklari)
+                {
+                    isiklar.SetActive(true);
+                }
+                for (int i = 0; i < 4; i++)
+                {
+                    m_WheelColliders[i].GetComponent<WheelCollider>().brakeTorque = 0;
+                }
+            }
+        }
+        void HizKadranKontrol()
+        {
+            SonHiz = (int)CurrentSpeed;
+            mevcutHiz.text = ((int)CurrentSpeed).ToString();
+            if (CurrentSpeed == 0)
+            {
+                Quaternion rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+                Kadran.transform.localRotation = rotation;
+            }
+            else
+            {
+                Quaternion rotation = Quaternion.Euler(new Vector3(0f, 0f, -CurrentSpeed * 1.3f));
+                Kadran.transform.localRotation = rotation;
+            }
+
+        }
+
+
+
+
+
+
         private void CapSpeed()
         {
             float speed = m_Rigidbody.velocity.magnitude;
