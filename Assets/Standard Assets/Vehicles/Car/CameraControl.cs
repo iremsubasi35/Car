@@ -6,16 +6,21 @@ using UnityStandardAssets.Vehicles.Car;
 
 public class CameraControl : MonoBehaviour
 {
-    public Transform[] target;
-
+    public static int ActiveCameraId = 0;
     public static YapayZekaController playerController;
+    public static int TotalCamera => playerController.Target.Length;
 
     // Update is called once per frame
     void Update()
     {
         if (playerController == null) return;
+        
+        transform.position = playerController.Target[ActiveCameraId].position;
+        transform.rotation = playerController.Target[ActiveCameraId].rotation;
+    }
 
-        transform.position = playerController.Target[0].position;
-        transform.rotation = playerController.Target[0].rotation;
+    public static void ChangeCamera()
+    {
+        
     }
 }
