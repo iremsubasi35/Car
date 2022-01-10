@@ -10,6 +10,9 @@ TagManager:
   - Vites
   - NitroSlider
   - NitroDeger
+  - Yollar
+  - YonBul
+  - TersYonPanel
   layers:
   - Default
   - TransparentFX

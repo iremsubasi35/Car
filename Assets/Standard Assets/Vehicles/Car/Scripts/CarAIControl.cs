@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -57,14 +58,43 @@ namespace UnityStandardAssets.Vehicles.Car
             m_Rigidbody = GetComponent<Rigidbody>();
         }
 
+        IEnumerator gerigit()
+        {
+            m_Driving = false;
+            yield return new WaitForSeconds(0.2f);
+            m_CarController.Move(0, -10, -10, -1f);
+            yield return new WaitForSeconds(3f);
+            m_Driving = true;
+        }
+        IEnumerator araciduzelt()
+        {
+            m_Driving = false;
+            yield return new WaitForSeconds(1f);
+            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            yield return new WaitForSeconds(0.3f);
+            m_Driving = true;
+        }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.CompareTag("citler"))
+            {
+
+                StartCoroutine(gerigit());
+            }
+            if (other.CompareTag("Yollar"))
+            {
+
+                StartCoroutine(araciduzelt());
+            }
+        }
         private void FixedUpdate()
         {
             if (m_Target == null || !m_Driving)
             {
                 // Car should not be moving,
                 // use handbrake to stop
-                m_CarController.Move(0, 0, -1f, 1f);
+               // m_CarController.Move(0, 0, -1f, 1f);
             }
             else
             {

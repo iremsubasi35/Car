@@ -69,6 +69,7 @@ namespace UnityStandardAssets.Vehicles.Car
         public Text mevcutvites;
         int SonHiz;
         public GameObject Kadran;
+        public GameObject TersYonObje;
         // N�TRO KADRAN DEG�SKENLER�
         public Image Nitroslider;
         public Text NitrodegerText;
@@ -80,6 +81,8 @@ namespace UnityStandardAssets.Vehicles.Car
         public bool IsCurrentPlayer = false;
 
         public Transform[] Target;
+        public Transform GidisYonuIsın;
+        public int YonGidisIndex = 1;
 
 
         // Use this for initialization
@@ -106,6 +109,9 @@ namespace UnityStandardAssets.Vehicles.Car
             Kadran = GameObject.FindWithTag("Kadran");
             Nitroslider = GameObject.FindWithTag("NitroSlider").GetComponent<Image>();
             NitrodegerText = GameObject.FindWithTag("NitroDeger").GetComponent<Text>();
+
+            TersYonObje = GameObject.FindWithTag("TersYonPanel");
+            TersYonObje.SetActive(false);
         }
         void Update()
         {
@@ -113,6 +119,26 @@ namespace UnityStandardAssets.Vehicles.Car
             FrenYap();
             HizKadranKontrol();
             NitroKullan();
+
+            RaycastHit hit;
+            if (Physics.Raycast(GidisYonuIsın.position, GidisYonuIsın.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+            {
+                if (hit.transform.CompareTag("YonBul"))
+                {
+                    if (YonGidisIndex > int.Parse( hit.transform.gameObject.name))
+                    {
+                        TersYonObje.SetActive(true);
+                        Debug.Log("TERS YÖN");
+                    }
+                    else
+                    {
+                        YonGidisIndex = int.Parse(hit.transform.gameObject.name);
+                        TersYonObje.SetActive(false);
+                        Debug.Log("DOĞRU YÖN");
+                    }
+                }
+            }
+            Debug.DrawRay(GidisYonuIsın.position, GidisYonuIsın.TransformDirection(Vector3.forward) * hit.distance, Color.green);
         }
 
         private void OnEnable()

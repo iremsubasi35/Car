@@ -25,11 +25,12 @@ public class GenelAyarlar : MonoBehaviour
         // GameObject.Find("OyunKontrol").GetComponent<KameraGecisKontrol>().kameralar[1] = arabam.transform.Find("Kameralar/OnKaput").gameObject;
         // GameObject.Find("OyunKontrol").GetComponent<KameraGecisKontrol>().kameralar[2] = arabam.transform.Find("Kameralar/Aracici").gameObject;
 
-        for (int i = 0; i < 2; i++)  // 2 sözgelimi yazýlmýstýr
-        {
-            int randomdeger = Random.Range(0, YapayZekaAraclar.Length - 1);
-            GameObject OlusanArac= Instantiate(YapayZekaAraclar[randomdeger], YapayZekaSpawnPoint[i].transform.position, YapayZekaSpawnPoint[i].transform.rotation);
-            OlusanArac.GetComponent<YapayZekaController>().SpawnPointIndex = i;
-        }
+        // for (int i = 0; i < 2; i++)  // 2 sözgelimi yazýlmýstýr
+        // {
+        //   int randomdeger = Random.Range(0, YapayZekaAraclar.Length - 1);
+        //  GameObject OlusanArac= Instantiate(YapayZekaAraclar[randomdeger], YapayZekaSpawnPoint[i].transform.position, YapayZekaSpawnPoint[i].transform.rotation);
+        //    OlusanArac.GetComponent<YapayZekaController>().SpawnPointIndex = i;
+        //  }
+        //}
     }
 }
