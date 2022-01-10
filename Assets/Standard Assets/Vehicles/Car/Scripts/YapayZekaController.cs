@@ -63,14 +63,14 @@ namespace UnityStandardAssets.Vehicles.Car
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
         // H�Z KADRAN� DE���KENLER�
-        public Text mevcutHiz;
-        // public Text mevcutVites;
+        public Text mevcuthiz;
+        public Text mevcutvites;
         int SonHiz;
         public GameObject Kadran;
         // N�TRO KADRAN DEG�SKENLER�
         public Image Nitroslider;
         public Text NitrodegerText;
-        float nitrodeger;
+        float nitrodeger=0;
         bool NitroDurumu = true;
         // EGZOZ ��LEMLER�
         public GameObject NitroEfekt;
@@ -97,6 +97,13 @@ namespace UnityStandardAssets.Vehicles.Car
 
             m_MaxHandbrakeTorque = float.MaxValue;
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
+            //GameObject.Find("Canvas/HizKadran/speedometer/hiz").GetComponent<Text>();
+
+            mevcuthiz = GameObject.FindWithTag("MevcutHız").GetComponent<Text>();
+            mevcutvites = GameObject.FindWithTag("Vites").GetComponent<Text>();
+            Kadran = GameObject.FindWithTag("Kadran");
+            Nitroslider = GameObject.FindWithTag("NitroSlider").GetComponent<Image>();
+            NitrodegerText = GameObject.FindWithTag("NitroDeger").GetComponent<Text>();
         }
         void Update()
         {

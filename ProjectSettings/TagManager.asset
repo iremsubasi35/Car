@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - "MevcutH\u0131z"
+  - OyunKontrol
+  - Kadran
+  - Vites
+  - NitroSlider
+  - NitroDeger
   layers:
   - Default
   - TransparentFX
