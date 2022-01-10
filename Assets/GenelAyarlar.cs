@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Vehicles.Car;
 
 public class GenelAyarlar : MonoBehaviour
 {
@@ -23,10 +24,12 @@ public class GenelAyarlar : MonoBehaviour
 
         GameObject.Find("OyunKontrol").GetComponent<KameraGecisKontrol>().kameralar[1] = arabam.transform.Find("Kameralar/OnKaput").gameObject;
         GameObject.Find("OyunKontrol").GetComponent<KameraGecisKontrol>().kameralar[2] = arabam.transform.Find("Kameralar/Aracici").gameObject;
+
         for (int i = 0; i < 2; i++)  // 2 sözgelimi yazýlmýstýr
         {
             int randomdeger = Random.Range(0, YapayZekaAraclar.Length - 1);
-            Instantiate(YapayZekaAraclar[randomdeger], YapayZekaSpawnPoint[i].transform.position, YapayZekaSpawnPoint[i].transform.rotation);
+            GameObject OlusanArac= Instantiate(YapayZekaAraclar[randomdeger], YapayZekaSpawnPoint[i].transform.position, YapayZekaSpawnPoint[i].transform.rotation);
+            OlusanArac.GetComponent<YapayZekaController>().SpawnPointIndex = i;
         }
     }
 }
