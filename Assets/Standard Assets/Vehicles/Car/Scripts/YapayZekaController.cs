@@ -81,8 +81,8 @@ namespace UnityStandardAssets.Vehicles.Car
         public bool IsCurrentPlayer = false;
 
         public Transform[] Target;
-        public Transform GidisYonuIsın;
-        public int YonGidisIndex = 1;
+        public Transform GıdısYonuIsın;
+        public int YonGıdısIndex = 1;
 
 
         // Use this for initialization
@@ -119,26 +119,28 @@ namespace UnityStandardAssets.Vehicles.Car
             FrenYap();
             HizKadranKontrol();
             NitroKullan();
-
-            RaycastHit hit;
-            if (Physics.Raycast(GidisYonuIsın.position, GidisYonuIsın.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+            if (IsCurrentPlayer)
             {
-                if (hit.transform.CompareTag("YonBul"))
+                RaycastHit hit;
+                if (Physics.Raycast(GıdısYonuIsın.position, GıdısYonuIsın.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
                 {
-                    if (YonGidisIndex > int.Parse( hit.transform.gameObject.name))
+                    if (hit.transform.CompareTag("YonBul"))
                     {
-                        TersYonObje.SetActive(true);
-                        Debug.Log("TERS YÖN");
-                    }
-                    else
-                    {
-                        YonGidisIndex = int.Parse(hit.transform.gameObject.name);
-                        TersYonObje.SetActive(false);
-                        Debug.Log("DOĞRU YÖN");
+                        if (YonGıdısIndex > int.Parse(hit.transform.gameObject.name))
+                        {
+                            TersYonObje.SetActive(true);
+                            Debug.Log("TERS YÖN");
+                        }
+                        else
+                        {
+                            YonGıdısIndex = int.Parse(hit.transform.gameObject.name);
+                            TersYonObje.SetActive(false);
+                            Debug.Log("DOĞRU YÖN");
+                        }
                     }
                 }
+                Debug.DrawRay(GıdısYonuIsın.position, GıdısYonuIsın.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             }
-            Debug.DrawRay(GidisYonuIsın.position, GidisYonuIsın.TransformDirection(Vector3.forward) * hit.distance, Color.green);
         }
 
         private void OnEnable()
