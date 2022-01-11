@@ -7,6 +7,7 @@ public class Sıralama : MonoBehaviour
 {
     public int AktıfYonSırası = 1;
     SıralamaYonetım sıralama;
+    public int pozisyon;
 
 
     void Start()

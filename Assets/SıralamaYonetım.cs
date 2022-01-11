@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 
 public class araba
@@ -24,7 +25,7 @@ public class SıralamaYonetım : MonoBehaviour
     {
 
         arabalar.Add(new araba(gelenobje,aktifyonu));
-        if (arabalar.Count==3)
+        if (arabalar.Count==4)
         {
             siralamakontrolet();
         }
@@ -41,23 +42,50 @@ public class SıralamaYonetım : MonoBehaviour
     }
     public void siralamakontrolet()
     {
-        foreach(var araba in arabalar)
+        arabalar = arabalar.OrderBy(w => w.pozisyon).ToList();
+
+
+        sira.text = "";
+
+        for(int i =0; i < arabalar.Count; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    if (arabalar[i].gelenobje.name =="biz")
+                    {
+                        sira.text = "4/4";
+                        arabalar[i].gelenobje.GetComponent<Sıralama>().pozisyon = 4;
+                    }
+                    break;
+                case 1:
+                    if (arabalar[i].gelenobje.name == "biz")
+                    {
+                        sira.text = "3/4";
+                        arabalar[i].gelenobje.GetComponent<Sıralama>().pozisyon = 3;
+                    }
+                    break;
+                case 2:
+                    if (arabalar[i].gelenobje.name == "biz")
+                    {
+                        sira.text = "2/4";
+                        arabalar[i].gelenobje.GetComponent<Sıralama>().pozisyon = 2;
+                    }
+                    break;
+                case 3:
+                    if (arabalar[i].gelenobje.name == "biz")
+                    {
+                        sira.text = "1/4";
+                        arabalar[i].gelenobje.GetComponent<Sıralama>().pozisyon = 1;
+                    }
+                    break;
+            }
+        }
+       /* foreach(var araba in arabalar)
         {
             sira.text += araba.gelenobje.name + "-" + araba.pozisyon + "<br>" ;
-        }
+        }*/
 
     }
 
-    void Start()
-    {
-        
-    }
-
-   
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

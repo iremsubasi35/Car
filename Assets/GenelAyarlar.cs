@@ -32,5 +32,12 @@ public class GenelAyarlar : MonoBehaviour
         //    OlusanArac.GetComponent<YapayZekaController>().SpawnPointIndex = i;
         //  }
         //}
+        for(int i = 0; i < 3; i++)
+        {
+            int randomdeger = Random.Range(0, YapayZekaAraclar.Length - 1);
+
+           GameObject OlusanArac = Instantiate(YapayZekaAraclar[randomdeger], YapayZekaSpawnPoint[i].transform.position, YapayZekaSpawnPoint[i]. transform.rotation);
+            OlusanArac.GetComponent<YapayZekaController>().SpawnPointIndex = i;
+        }
     }
 }

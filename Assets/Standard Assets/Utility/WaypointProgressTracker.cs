@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityStandardAssets.Vehicles.Car;
 
 #pragma warning disable 649
 namespace UnityStandardAssets.Utility
@@ -53,6 +54,7 @@ namespace UnityStandardAssets.Utility
         // setup script properties
         private void Start()
         {
+            circuit = GameObject.Find("Guzergah" + GetComponent<YapayZekaController>().SpawnPointIndex).GetComponent<WaypointCircuit>();
             // we use a transform to represent the point to aim for, and the point which
             // is considered for upcoming changes-of-speed. This allows this component
             // to communicate this information to the AI without requiring further dependencies.
