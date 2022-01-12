@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Vehicles.Car;
+using TMPro;
+
 
 public class GenelAyarlar : MonoBehaviour
 {
     public GameObject[] Araclar;
     public GameObject[] YapayZekaSpawnPoint;
     public GameObject[] YapayZekaAraclar;
+    public AudioSource[] sesler;
+    public GameObject OyunSonuPanel;
+    
+    //oyun müziðini oynat
+    
     public GameObject SpawnPoint;
 
     private CameraControl camControl;
@@ -15,6 +22,8 @@ public class GenelAyarlar : MonoBehaviour
 
     void Start()
     {
+
+        
         camControl = FindObjectOfType<CameraControl>();
         GameObject arabam = Instantiate(Araclar[PlayerPrefs.GetInt("SecilenArac")], SpawnPoint.transform.position, SpawnPoint.transform.rotation);
 
@@ -38,6 +47,16 @@ public class GenelAyarlar : MonoBehaviour
 
            GameObject OlusanArac = Instantiate(YapayZekaAraclar[randomdeger], YapayZekaSpawnPoint[i].transform.position, YapayZekaSpawnPoint[i]. transform.rotation);
             OlusanArac.GetComponent<YapayZekaController>().SpawnPointIndex = i;
+
         }
     }
+    public void OyunSonu(int pozisyon)
+    {
+        OyunSonuPanel.transform.Find("Panel/sýra").GetComponent<TextMeshProUGUI>().text=pozisyon.ToString()+". Bitirdin.";
+        OyunSonuPanel.SetActive(true);
+
+    }
+
+
+
 }

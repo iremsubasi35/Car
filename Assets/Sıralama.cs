@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+
 
 public class Sıralama : MonoBehaviour
 {
     public int AktıfYonSırası = 1;
     SıralamaYonetım sıralama;
+    GenelAyarlar genelayarlar;
+    
     public int pozisyon;
 
 
@@ -24,6 +26,15 @@ public class Sıralama : MonoBehaviour
             AktıfYonSırası =int.Parse( other.transform.gameObject.name);
             sıralama.SıralamaGuncelle(gameObject,AktıfYonSırası);
         }
+        if (gameObject.name=="biz")
+        {
+            if (other.CompareTag("Finish"))
+            {
+                genelayarlar.OyunSonu(pozisyon);
+            }
+
+        }
+       
     }
    
 

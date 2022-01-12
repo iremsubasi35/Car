@@ -40,6 +40,7 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] private float m_SlipLimit;
         [SerializeField] private float m_BrakeTorque;
         
+        
         private Quaternion[] m_WheelMeshLocalRotations;
         private Vector3 m_Prevpos, m_Pos;
         private float m_SteerAngle;
@@ -130,13 +131,13 @@ namespace UnityStandardAssets.Vehicles.Car
                         if (YonGıdısIndex > int.Parse(hit.transform.gameObject.name))
                         {
                             TersYonObje.SetActive(true);
-                            Debug.Log("TERS YÖN");
+                            
                         }
                         else
                         {
                             YonGıdısIndex = int.Parse(hit.transform.gameObject.name);
                             TersYonObje.SetActive(false);
-                            Debug.Log("DOĞRU YÖN");
+                            
                         }
                     }
                 }
