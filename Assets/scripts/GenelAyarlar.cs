@@ -10,6 +10,11 @@ public class GenelAyarlar : MonoBehaviour
     public GameObject[] Araclar;
     public GameObject[] YapayZekaSpawnPoint;
     public GameObject[] YapayZekaAraclar;
+    public List<GameObject>  OlusanAraclar= new List<GameObject>() ;
+    public TextMeshProUGUI gerisayým;
+    float saniye = 3f;
+    bool sayac = true;
+    Coroutine sayacým;
     public AudioSource[] sesler;
     public GameObject OyunSonuPanel;
     
@@ -22,8 +27,8 @@ public class GenelAyarlar : MonoBehaviour
 
     void Start()
     {
-
-        
+        sayacým = StartCoroutine(SayacKontrol());
+        gerisayým.text = saniye. ToString();
         camControl = FindObjectOfType<CameraControl>();
         GameObject arabam = Instantiate(Araclar[PlayerPrefs.GetInt("SecilenArac")], SpawnPoint.transform.position, SpawnPoint.transform.rotation);
 
@@ -49,12 +54,64 @@ public class GenelAyarlar : MonoBehaviour
             OlusanArac.GetComponent<YapayZekaController>().SpawnPointIndex = i;
 
         }
+
+
+
     }
-    public void OyunSonu(int pozisyon)
+    public void kendinigonder(GameObject gelenobje)
+    {
+
+        OlusanAraclar.Add(gelenobje);
+
+      //  if (arabalar.Count == 4)
+       // {
+        //    siralamakontrolet();
+       } 
+
+        public void OyunSonu(int pozisyon)
     {
         OyunSonuPanel.transform.Find("Panel/sýra").GetComponent<TextMeshProUGUI>().text=pozisyon.ToString()+". Bitirdin.";
         OyunSonuPanel.SetActive(true);
 
+    }
+    IEnumerator SayacKontrol()
+    {
+        while( sayac)
+        {
+            yield return new WaitForSeconds(1f);
+            saniye --;
+            gerisayým.text = Mathf.Round(saniye).ToString();
+            if (saniye < 0)
+            {
+
+                foreach (var araba in OlusanAraclar)
+                {
+                    if (araba.gameObject.name == "biz")
+                    {
+                        araba.GetComponentInParent<CarUserControl>().enabled = true;
+                    }
+                    else
+                    {
+                        araba.GetComponentInParent<CarAIControl>().m_Driving = true;
+                    }
+                }
+                gerisayým.enabled = false;
+                sayac = false;
+                StopCoroutine(sayacým);
+            }
+    }
+
+   /* private void Update()
+    {
+        if (sayac)
+        {
+            saniye -= Time.deltaTime;
+            gerisayým.text = Mathf.Round(saniye).ToString();
+
+            
+            
+        } */
+       
     }
 
 

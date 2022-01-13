@@ -115,12 +115,17 @@ namespace UnityStandardAssets.Vehicles.Car
             TersYonObje = GameObject.FindWithTag("TersYonPanel");
             TersYonObje.SetActive(false);
         }
+
+       
         void Update()
         {
             OnFarKontrol();
             FrenYap();
             HizKadranKontrol();
             NitroKullan();
+            AraciDuzelt();
+
+
             if (IsCurrentPlayer)
             {
                 RaycastHit hit;
@@ -142,6 +147,13 @@ namespace UnityStandardAssets.Vehicles.Car
                     }
                 }
                 Debug.DrawRay(GıdısYonuIsın.position, GıdısYonuIsın.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            }
+        }
+        void AraciDuzelt()
+        {
+            if (Input.GetKey(KeyCode.R))
+            {
+                transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
             }
         }
 

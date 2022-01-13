@@ -17,6 +17,9 @@ public class Sıralama : MonoBehaviour
         sıralama = GameObject.FindWithTag("OyunKontrol").GetComponent<SıralamaYonetım>();
         sıralama.kendinigonder(gameObject,AktıfYonSırası);
 
+        genelayarlar = GameObject.FindWithTag("OyunKontrol").GetComponent<GenelAyarlar>();
+        genelayarlar.kendinigonder(gameObject);
+
     }
 
     private void OnTriggerEnter(Collider other)
