@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Vehicles.Car;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class GenelAyarlar : MonoBehaviour
@@ -74,6 +75,20 @@ public class GenelAyarlar : MonoBehaviour
         OyunSonuPanel.SetActive(true);
 
     }
+    public void SahneDegis(int deger)
+    {
+        StartCoroutine(GecisYap(deger));
+    }
+    public void cýk()
+    {
+        Application.Quit();
+    }
+    IEnumerator GecisYap(int deger)
+    {
+        
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(deger);
+    }
     IEnumerator SayacKontrol()
     {
         while( sayac)
@@ -100,18 +115,19 @@ public class GenelAyarlar : MonoBehaviour
                 StopCoroutine(sayacým);
             }
     }
+        
 
-   /* private void Update()
-    {
-        if (sayac)
-        {
-            saniye -= Time.deltaTime;
-            gerisayým.text = Mathf.Round(saniye).ToString();
+        /* private void Update()
+         {
+             if (sayac)
+             {
+                 saniye -= Time.deltaTime;
+                 gerisayým.text = Mathf.Round(saniye).ToString();
 
-            
-            
-        } */
-       
+
+
+             } */
+
     }
 
 
