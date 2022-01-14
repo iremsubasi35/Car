@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 public class ArabaSecim : MonoBehaviour
 {
     public GameObject[] Arabalar;
-    public Text ArabaAd;
+    public TMP_Text ArabaAd;
     int aktifaracindex = 0;
     void Start()
     {

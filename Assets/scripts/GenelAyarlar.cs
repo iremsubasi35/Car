@@ -12,14 +12,14 @@ public class GenelAyarlar : MonoBehaviour
     public GameObject[] YapayZekaSpawnPoint;
     public GameObject[] YapayZekaAraclar;
     public List<GameObject>  OlusanAraclar= new List<GameObject>() ;
-    public TextMeshProUGUI gerisayým;
+    public TextMeshProUGUI gerisayacText;
     float saniye = 3f;
     bool sayac = true;
-    Coroutine sayacým;
+    Coroutine sayaxRoutine;
     public AudioSource[] sesler;
     public GameObject OyunSonuPanel;
     
-    //oyun müziðini oynat
+    //oyun mÃ¼ziÃ°ini oynat
     
     public GameObject SpawnPoint;
 
@@ -28,8 +28,8 @@ public class GenelAyarlar : MonoBehaviour
 
     void Start()
     {
-        sayacým = StartCoroutine(SayacKontrol());
-        gerisayým.text = saniye. ToString();
+        sayaxRoutine = StartCoroutine(SayacKontrol());
+        gerisayacText.text = saniye. ToString();
         camControl = FindObjectOfType<CameraControl>();
         GameObject arabam = Instantiate(Araclar[PlayerPrefs.GetInt("SecilenArac")], SpawnPoint.transform.position, SpawnPoint.transform.rotation);
 
@@ -40,7 +40,7 @@ public class GenelAyarlar : MonoBehaviour
         // GameObject.Find("OyunKontrol").GetComponent<KameraGecisKontrol>().kameralar[1] = arabam.transform.Find("Kameralar/OnKaput").gameObject;
         // GameObject.Find("OyunKontrol").GetComponent<KameraGecisKontrol>().kameralar[2] = arabam.transform.Find("Kameralar/Aracici").gameObject;
 
-        // for (int i = 0; i < 2; i++)  // 2 sözgelimi yazýlmýstýr
+        // for (int i = 0; i < 2; i++)  // 2 sÃ¶zgelimi yazÃ½lmÃ½stÃ½r
         // {
         //   int randomdeger = Random.Range(0, YapayZekaAraclar.Length - 1);
         //  GameObject OlusanArac= Instantiate(YapayZekaAraclar[randomdeger], YapayZekaSpawnPoint[i].transform.position, YapayZekaSpawnPoint[i].transform.rotation);
@@ -71,7 +71,7 @@ public class GenelAyarlar : MonoBehaviour
 
         public void OyunSonu(int pozisyon)
     {
-        OyunSonuPanel.transform.Find("Panel/sýra").GetComponent<TextMeshProUGUI>().text=pozisyon.ToString()+". Bitirdin.";
+        OyunSonuPanel.transform.Find("Panel/sÃ½ra").GetComponent<TextMeshProUGUI>().text=pozisyon.ToString()+". Bitirdin.";
         OyunSonuPanel.SetActive(true);
 
     }
@@ -79,7 +79,7 @@ public class GenelAyarlar : MonoBehaviour
     {
         StartCoroutine(GecisYap(deger));
     }
-    public void cýk()
+    public void cÃ½k()
     {
         Application.Quit();
     }
@@ -95,7 +95,7 @@ public class GenelAyarlar : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             saniye --;
-            gerisayým.text = Mathf.Round(saniye).ToString();
+            gerisayacText.text = Mathf.Round(saniye).ToString();
             if (saniye < 0)
             {
 
@@ -110,9 +110,9 @@ public class GenelAyarlar : MonoBehaviour
                         araba.GetComponentInParent<CarAIControl>().m_Driving = true;
                     }
                 }
-                gerisayým.enabled = false;
+                gerisayacText.enabled = false;
                 sayac = false;
-                StopCoroutine(sayacým);
+                StopCoroutine(sayaxRoutine);
             }
     }
         
@@ -122,7 +122,7 @@ public class GenelAyarlar : MonoBehaviour
              if (sayac)
              {
                  saniye -= Time.deltaTime;
-                 gerisayým.text = Mathf.Round(saniye).ToString();
+                 gerisayÃ½m.text = Mathf.Round(saniye).ToString();
 
 
 

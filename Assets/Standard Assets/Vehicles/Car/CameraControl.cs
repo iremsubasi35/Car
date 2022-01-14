@@ -15,8 +15,8 @@ public class CameraControl : MonoBehaviour
     {
         if (playerController == null) return;
         
-        transform.position = playerController.Target[ActiveCameraId].position;
-        transform.rotation = playerController.Target[ActiveCameraId].rotation;
+        // transform.position = playerController.Target[ActiveCameraId].position;
+        // transform.rotation = playerController.Target[ActiveCameraId].rotation;
     }
 
     public static void ChangeCamera()

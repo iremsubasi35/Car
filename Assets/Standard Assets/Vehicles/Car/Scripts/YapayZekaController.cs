@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityStandardAssets.Utility;
 
 #pragma warning disable 649
 namespace UnityStandardAssets.Vehicles.Car
@@ -86,13 +89,23 @@ namespace UnityStandardAssets.Vehicles.Car
         public Transform GıdısYonuIsın;
         public int YonGıdısIndex = 1;
 
+        [SerializeField]
+        private WaypointCircuit _waypointCircuit;
+        private float checkpointTimer = 0.5f;
+        public Transform LastCheckPoint;
+
 
         // Use this for initialization
         private void Start()
         {
+            if (_waypointCircuit == null)
+            {
+                _waypointCircuit = FindObjectOfType<WaypointCircuit>();
+            }
             if (GetComponent<CarUserControl>())
             {
                 IsCurrentPlayer = true;
+                CameraControl.playerController = this;
             }
             
             m_WheelMeshLocalRotations = new Quaternion[4];
@@ -119,6 +132,7 @@ namespace UnityStandardAssets.Vehicles.Car
        
         void Update()
         {
+            CheckpointerChecker();
             OnFarKontrol();
             FrenYap();
             HizKadranKontrol();
@@ -149,11 +163,41 @@ namespace UnityStandardAssets.Vehicles.Car
                 Debug.DrawRay(GıdısYonuIsın.position, GıdısYonuIsın.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             }
         }
+
+        // find the nearest waypoint point
+        private void CheckpointerChecker()
+        {
+            checkpointTimer -= Time.deltaTime;
+            if (checkpointTimer < 0f)
+            {
+                checkpointTimer = 0.25f;
+                
+                // start checking point in the list
+                Transform nearestWaypoint = _waypointCircuit.Waypoints.First();
+                float nearestPoint = 10000f;
+
+                foreach (var it in _waypointCircuit.Waypoints)
+                {
+                    float dist = Vector3.Distance(it.position, transform.position);
+                    if (dist < nearestPoint && dist < 2f)
+                    {
+                        nearestPoint = dist;
+                        nearestWaypoint = it;
+                        LastCheckPoint = it;
+                    }
+                }
+            }
+        }
+
         void AraciDuzelt()
         {
             if (Input.GetKey(KeyCode.R))
             {
-                transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                m_Rigidbody.Sleep();
+                transform.position = LastCheckPoint.position;
+                transform.rotation = LastCheckPoint.rotation;
+                // transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+
             }
         }
 
