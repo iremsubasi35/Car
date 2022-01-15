@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Vehicles.Car;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Vehicles.Car;
+using Random = UnityEngine.Random;
 
 
 public class GenelAyarlar : MonoBehaviour
@@ -18,6 +20,8 @@ public class GenelAyarlar : MonoBehaviour
     Coroutine sayaxRoutine;
     public AudioSource[] sesler;
     public GameObject OyunSonuPanel;
+
+    public static GenelAyarlar master;
     
     //oyun müziðini oynat
     
@@ -25,14 +29,21 @@ public class GenelAyarlar : MonoBehaviour
 
     private CameraControl camControl;
 
+    public GameObject TersYonObject;
+
+    private void OnEnable()
+    {
+        master = this;
+    }
 
     void Start()
     {
         sayaxRoutine = StartCoroutine(SayacKontrol());
         gerisayacText.text = saniye. ToString();
         camControl = FindObjectOfType<CameraControl>();
-        GameObject arabam = Instantiate(Araclar[PlayerPrefs.GetInt("SecilenArac")], SpawnPoint.transform.position, SpawnPoint.transform.rotation);
-
+        var clonedCar = Instantiate(Araclar[PlayerPrefs.GetInt("SecilenArac")], SpawnPoint.transform.position, SpawnPoint.transform.rotation);
+        clonedCar.SetActive(true);
+        TersYonObject = GameObject.FindWithTag("TersYonPanel");
 
         // GameObject.Find("Main Camera").GetComponent<CameraControl>().target[0] = arabam.transform.Find("PozisyonAl");
         // GameObject.Find("Main Camera").GetComponent<CameraControl>().target[1] = arabam.transform.Find("Pivot");
@@ -49,10 +60,10 @@ public class GenelAyarlar : MonoBehaviour
         //}
         for(int i = 0; i < 3; i++)
         {
-            int randomdeger = Random.Range(0, YapayZekaAraclar.Length - 1);
-
-           GameObject OlusanArac = Instantiate(YapayZekaAraclar[randomdeger], YapayZekaSpawnPoint[i].transform.position, YapayZekaSpawnPoint[i]. transform.rotation);
-            OlusanArac.GetComponent<YapayZekaController>().SpawnPointIndex = i;
+           //  int randomdeger = Random.Range(0, YapayZekaAraclar.Length - 1);
+           //
+           // GameObject OlusanArac = Instantiate(YapayZekaAraclar[randomdeger], YapayZekaSpawnPoint[i].transform.position, YapayZekaSpawnPoint[i]. transform.rotation);
+           //  OlusanArac.GetComponent<YapayZekaController>().SpawnPointIndex = i;
 
         }
 
