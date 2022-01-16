@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Serialization;
 using UnityStandardAssets.Utility;
 
 #pragma warning disable 649
@@ -92,9 +93,8 @@ namespace UnityStandardAssets.Vehicles.Car
         // N�TRO KADRAN DEG�SKENLER�
         public Image Nitroslider;
         public Text NitrodegerText;
-        float nitrodeger = 0;
-
-        bool NitroDurumu = true;
+        float nitrodeger = 100;
+        bool NitroDurumu = false;
 
         // EGZOZ ��LEMLER�
         public GameObject NitroEfekt;
@@ -102,12 +102,14 @@ namespace UnityStandardAssets.Vehicles.Car
         public bool IsCurrentPlayer = false;
 
         public Transform[] Target;
-        public Transform GıdısYonuIsın;
+        [FormerlySerializedAs("GıdısYonuIsın")] public Transform RaycastForward;
         public int YonGıdısIndex = 1;
 
         [SerializeField] private WaypointCircuit _waypointCircuit;
-        private float checkpointTimer = 0.5f;
+        private float checkpointTimer = 0.1f;
         public Transform LastCheckPoint;
+
+        private bool canMove = false;
 
 
         // Use this for initialization
@@ -141,8 +143,11 @@ namespace UnityStandardAssets.Vehicles.Car
             Kadran = GameObject.FindWithTag("Kadran");
             Nitroslider = GameObject.FindWithTag("NitroSlider").GetComponent<Image>();
             NitrodegerText = GameObject.FindWithTag("NitroDeger").GetComponent<Text>();
+
+            NitrodegerText.text = Mathf.CeilToInt(nitrodeger).ToString();
             
-            activateCamera();
+            if(IsCurrentPlayer)
+                activateCamera();
         }
 
 
@@ -161,7 +166,7 @@ namespace UnityStandardAssets.Vehicles.Car
             if (IsCurrentPlayer)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(GıdısYonuIsın.position, GıdısYonuIsın.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+                if (Physics.Raycast(RaycastForward.position, RaycastForward.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
                 {
                     if (hit.transform.CompareTag("YonBul"))
                     {
@@ -177,7 +182,7 @@ namespace UnityStandardAssets.Vehicles.Car
                     }
                 }
 
-                Debug.DrawRay(GıdısYonuIsın.position, GıdısYonuIsın.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+                Debug.DrawRay(RaycastForward.position, RaycastForward.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             }
         }
 
@@ -228,7 +233,7 @@ namespace UnityStandardAssets.Vehicles.Car
             checkpointTimer -= Time.deltaTime;
             if (checkpointTimer < 0f)
             {
-                checkpointTimer = 0.25f;
+                checkpointTimer = 0.1f;
 
                 // start checking point in the list
                 Transform nearestWaypoint = _waypointCircuit.Waypoints.First();
@@ -237,10 +242,9 @@ namespace UnityStandardAssets.Vehicles.Car
                 foreach (var it in _waypointCircuit.Waypoints)
                 {
                     float dist = Vector3.Distance(it.position, transform.position);
-                    if (dist < nearestPoint && dist < 2f)
+                    if (dist < nearestPoint)
                     {
                         nearestPoint = dist;
-                        nearestWaypoint = it;
                         LastCheckPoint = it;
                     }
                 }
@@ -409,7 +413,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 if (!NitroDurumu)
                 {
                     NitroEfekt.SetActive(true);
-                    m_Rigidbody.velocity += 0.7f * m_Rigidbody.velocity.normalized;
+                    m_Rigidbody.velocity += 0.2f * m_Rigidbody.velocity.normalized;
                     nitrodeger -= 2;
                     NitrodegerText.text = "HAZIR";
 
@@ -418,6 +422,8 @@ namespace UnityStandardAssets.Vehicles.Car
                     {
                         Sesler[0].Play();
                     }
+                    
+                    NitrodegerText.text = Mathf.CeilToInt(nitrodeger).ToString();
                 }
 
                 if (nitrodeger <= 0)
@@ -425,6 +431,7 @@ namespace UnityStandardAssets.Vehicles.Car
                     NitroEfekt.SetActive(false);
                     nitrodeger = 0;
                     NitroDurumu = true;
+                    NitrodegerText.text = Mathf.CeilToInt(nitrodeger).ToString();
                     return;
                 }
             }
@@ -441,6 +448,8 @@ namespace UnityStandardAssets.Vehicles.Car
         private int activeCameraId = 0;
         void activateCamera()
         {
+            if (!IsCurrentPlayer) return;
+            
             foreach (var cam in Target)
                 cam.gameObject.SetActive(false);
         
@@ -449,7 +458,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public void NextCamera()
         {
-            if (IsCurrentPlayer) return;
+            if (!IsCurrentPlayer) return;
         
             activeCameraId = (activeCameraId + 1) % Target.Length;
             activateCamera();

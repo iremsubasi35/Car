@@ -1,21 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityStandardAssets.Utility;
 
 
 public class araba
 {
     public GameObject gelenobje;
     public int pozisyon;
-    public araba(GameObject disgelenobje,int dispozisyon)
+    public WaypointProgressTracker ProgressTracker;
+    public bool IsPlayer = false;
+
+    public araba(GameObject disgelenobje, int dispozisyon)
     {
         gelenobje = disgelenobje;
         pozisyon = dispozisyon;
+        ProgressTracker = disgelenobje.transform.parent.GetComponent<WaypointProgressTracker>();
+        IsPlayer = disgelenobje.name.Equals("biz");
     }
-
 }
+
 public class SiralamaManager : MonoBehaviour
 {
     public List<araba> arabalar = new List<araba>();
@@ -23,40 +30,54 @@ public class SiralamaManager : MonoBehaviour
 
     public void kendinigonder(GameObject gelenobje, int aktifyonu)
     {
+        arabalar.Add(new araba(gelenobje, aktifyonu));
+        // if (arabalar.Count == 4)
+        // {
+        //     siralamakontrolet();
+        // }
+    }
 
-        arabalar.Add(new araba(gelenobje,aktifyonu));
-        if (arabalar.Count==4)
+    private float timer = 0.5f;
+    private void FixedUpdate()
+    {
+        timer -= Time.fixedDeltaTime;
+        if (timer < 0f)
         {
-            siralamakontrolet();
+            timer = 0.5f;
+            // var playerObject = arabalar.Find(x => x.IsPlayer);
+            arabalar = arabalar.OrderByDescending(x => x.ProgressTracker.Completion).ToList();
+            var playerIndex = arabalar.FindIndex(x => x.IsPlayer);
+            sira.text = $"{playerIndex+1}/{arabalar.Count}";
         }
     }
-    public void SıralamaGuncelle (GameObject gelenaraba,int pozisyon )
+
+    public void SıralamaGuncelle(GameObject gelenaraba, int pozisyon)
     {
-        for(int i =0; i < arabalar.Count; i++)
+        for (int i = 0; i < arabalar.Count; i++)
         {
-            if(arabalar[i].gelenobje== gelenaraba)
+            if (arabalar[i].gelenobje == gelenaraba)
             {
                 arabalar[i].pozisyon = pozisyon;
             }
         }
     }
+
     public void siralamakontrolet()
     {
         arabalar = arabalar.OrderBy(w => w.pozisyon).ToList();
-
-
         sira.text = "";
 
-        for(int i =0; i < arabalar.Count; i++)
+        for (int i = 0; i < arabalar.Count; i++)
         {
             switch (i)
             {
                 case 0:
-                    if (arabalar[i].gelenobje.name =="biz")
+                    if (arabalar[i].gelenobje.name == "biz")
                     {
                         sira.text = "4/4";
                         arabalar[i].gelenobje.GetComponent<Siralama>().pozisyon = 4;
                     }
+
                     break;
                 case 1:
                     if (arabalar[i].gelenobje.name == "biz")
@@ -64,6 +85,7 @@ public class SiralamaManager : MonoBehaviour
                         sira.text = "3/4";
                         arabalar[i].gelenobje.GetComponent<Siralama>().pozisyon = 3;
                     }
+
                     break;
                 case 2:
                     if (arabalar[i].gelenobje.name == "biz")
@@ -71,6 +93,7 @@ public class SiralamaManager : MonoBehaviour
                         sira.text = "2/4";
                         arabalar[i].gelenobje.GetComponent<Siralama>().pozisyon = 2;
                     }
+
                     break;
                 case 3:
                     if (arabalar[i].gelenobje.name == "biz")
@@ -78,14 +101,9 @@ public class SiralamaManager : MonoBehaviour
                         sira.text = "1/4";
                         arabalar[i].gelenobje.GetComponent<Siralama>().pozisyon = 1;
                     }
+
                     break;
             }
         }
-       /* foreach(var araba in arabalar)
-        {
-            sira.text += araba.gelenobje.name + "-" + araba.pozisyon + "<br>" ;
-        }*/
-
     }
-
 }

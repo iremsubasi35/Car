@@ -34,6 +34,7 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] [Range(0, 1)] private float m_AccelWanderAmount = 0.1f;                  // how much the cars acceleration will wander
         [SerializeField] private float m_AccelWanderSpeed = 0.1f;                                 // how fast the cars acceleration wandering will fluctuate
         [SerializeField] private BrakeCondition m_BrakeCondition = BrakeCondition.TargetDistance; // what should the AI consider when accelerating/braking?
+        bool canMove = false;
         public bool m_Driving;                                                  // whether the AI is currently actively driving or stopped.
         [SerializeField] private Transform m_Target;                                              // 'target' the target object to aim for.
         [SerializeField] private bool m_StopWhenTargetReached;                                    // should we stop driving when we reach the target?
@@ -58,6 +59,29 @@ namespace UnityStandardAssets.Vehicles.Car
             m_Rigidbody = GetComponent<Rigidbody>();
         }
 
+        private void OnEnable()
+        {
+            EventManager.OnStartGame += onStartGame;
+            EventManager.OnStopGame += onStopGame;
+        }
+
+        private void OnDisable()
+        {
+            
+            EventManager.OnStartGame -= onStartGame;
+            EventManager.OnStopGame -= onStopGame;
+        }
+
+        private void onStopGame()
+        {
+            canMove = false;
+        }
+
+        private void onStartGame()
+        {
+            canMove = true;
+        }
+
         IEnumerator gerigit()
         {
             m_Driving = false;
@@ -75,21 +99,31 @@ namespace UnityStandardAssets.Vehicles.Car
             m_Driving = true;
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if(other.CompareTag("citler"))
-            {
+        // private void OnTriggerEnter(Collider other)
+        // {
+        //     if(other.CompareTag("citler"))
+        //     {
+        //
+        //         StartCoroutine(gerigit());
+        //     }
+        //     if (other.CompareTag("Yollar"))
+        //     {
+        //
+        //         StartCoroutine(araciduzelt());
+        //     }
+        // }
 
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.layer == 11)
+            {
                 StartCoroutine(gerigit());
             }
-            if (other.CompareTag("Yollar"))
-            {
-
-                StartCoroutine(araciduzelt());
-            }
         }
+
         private void FixedUpdate()
         {
+            if (!canMove) return;
             if (m_Target == null || !m_Driving)
             {
                 // Car should not be moving,

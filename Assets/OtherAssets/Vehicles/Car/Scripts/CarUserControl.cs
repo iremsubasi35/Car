@@ -8,7 +8,7 @@ namespace UnityStandardAssets.Vehicles.Car
     public class CarUserControl : MonoBehaviour
     {
         private YapayZekaController m_Car; // the car controller we want to use
-
+        bool canMove = false;
 
         private void Awake()
         {
@@ -17,10 +17,26 @@ namespace UnityStandardAssets.Vehicles.Car
             CameraControl.playerController = m_Car;
         }
 
+        private void OnEnable()
+        {
+            EventManager.OnStartGame += onStartGame;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.OnStartGame -= onStartGame;
+        }
+
+        void onStartGame()
+        {
+            canMove = true;
+        }
+
 
         private void FixedUpdate()
         {
-            // pass the input to the car!
+            if (!canMove) return;
+            
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
 #if !MOBILE_INPUT
