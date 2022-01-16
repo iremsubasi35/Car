@@ -82,7 +82,7 @@ public class GenelAyarlar : MonoBehaviour
 
         public void OyunSonu(int pozisyon)
     {
-        OyunSonuPanel.transform.Find("Panel/sýra").GetComponent<TextMeshProUGUI>().text=pozisyon.ToString()+". Bitirdin.";
+        OyunSonuPanel.transform.Find("SonucPanel/Panel/sıra").GetComponent<TextMeshProUGUI>().text=pozisyon.ToString()+". Bitirdin.";
         OyunSonuPanel.SetActive(true);
 
     }
@@ -90,7 +90,7 @@ public class GenelAyarlar : MonoBehaviour
     {
         StartCoroutine(GecisYap(deger));
     }
-    public void cýk()
+    public void cık()
     {
         Application.Quit();
     }
