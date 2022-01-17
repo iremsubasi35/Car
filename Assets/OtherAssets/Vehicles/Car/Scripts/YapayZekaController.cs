@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Serialization;
 using UnityStandardAssets.Utility;
+using Random = UnityEngine.Random;
 
 #pragma warning disable 649
 namespace UnityStandardAssets.Vehicles.Car
@@ -108,8 +109,11 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] private WaypointCircuit _waypointCircuit;
         private float checkpointTimer = 0.1f;
         public Transform LastCheckPoint;
-
         private bool canMove = false;
+
+        // Store checkpoints
+        public List<Transform> CheckpointTouched = new List<Transform>();
+        public float FinishTimer = 0f;
 
 
         // Use this for initialization
@@ -153,7 +157,6 @@ namespace UnityStandardAssets.Vehicles.Car
 
         void Update()
         {
-            CheckpointerChecker();
             CheckIfCarFlipped();
             OnFarKontrol();
             FrenYap();
@@ -215,7 +218,8 @@ namespace UnityStandardAssets.Vehicles.Car
                 else if (resetNextTime && collidedRoad.Length == 0)
                 {
                     m_Rigidbody.Sleep();
-                    transform.position = LastCheckPoint.position;
+                    var randFloat = Random.Range(-4f, 4f);
+                    transform.position = LastCheckPoint.position + new Vector3(randFloat, 1f, 0);
                     transform.rotation = LastCheckPoint.rotation;
                 }
             }
@@ -227,36 +231,14 @@ namespace UnityStandardAssets.Vehicles.Car
                 Gizmos.DrawSphere(FloorChecker.position, 0.5f);
         }
 
-        // find the nearest waypoint point
-        private void CheckpointerChecker()
-        {
-            checkpointTimer -= Time.deltaTime;
-            if (checkpointTimer < 0f)
-            {
-                checkpointTimer = 0.1f;
-
-                // start checking point in the list
-                Transform nearestWaypoint = _waypointCircuit.Waypoints.First();
-                float nearestPoint = 10000f;
-
-                foreach (var it in _waypointCircuit.Waypoints)
-                {
-                    float dist = Vector3.Distance(it.position, transform.position);
-                    if (dist < nearestPoint)
-                    {
-                        nearestPoint = dist;
-                        LastCheckPoint = it;
-                    }
-                }
-            }
-        }
-
         void AraciDuzelt()
         {
-            if (Input.GetKey(KeyCode.R))
+            if (Input.GetKey(KeyCode.R) && IsCurrentPlayer)
             {
                 m_Rigidbody.Sleep();
-                transform.position = LastCheckPoint.position;
+                var randFloat = Random.Range(-4f, 4f);
+                var pos = LastCheckPoint.localPosition +new Vector3(randFloat, 1f, 0);
+                transform.position = pos;
                 transform.rotation = LastCheckPoint.rotation;
                 // transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
             }
@@ -400,6 +382,27 @@ namespace UnityStandardAssets.Vehicles.Car
                 foreach (var isiklar in OnFar)
                 {
                     isiklar.SetActive(OnFarAcikmi);
+                }
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("YonBul"))
+            {
+                if (!CheckpointTouched.Contains(other.transform))
+                {
+                    CheckpointTouched.Add(other.transform);
+                }
+                
+                LastCheckPoint = other.transform;
+            }
+
+            if (other.CompareTag("FinishLine"))
+            {
+                if (CheckpointTouched.Count > GenelAyarlar.master.CheckpointItems.Length / 2)
+                {
+                    FinishTimer = Time.time;
                 }
             }
         }

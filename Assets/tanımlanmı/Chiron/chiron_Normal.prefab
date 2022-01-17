@@ -20851,7 +20851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &24584008171275260
 Transform:
   m_ObjectHideFlags: 0
@@ -20929,7 +20929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 24584008171275260}
+  volumeTrigger: {fileID: 24584008392847547}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -21157,7 +21157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &24584008392847547
 Transform:
   m_ObjectHideFlags: 0
@@ -24214,19 +24214,20 @@ GameObject:
   m_Component:
   - component: {fileID: 6333795549866014786}
   - component: {fileID: 6678268503856177906}
-  - component: {fileID: 6678268503856177917}
+  - component: {fileID: 8807808995533074592}
   - component: {fileID: 6678268503856177916}
   - component: {fileID: 6678268503856177919}
   - component: {fileID: 6678268503856177918}
   - component: {fileID: 6678268503856177913}
   - component: {fileID: 1511692075}
+  - component: {fileID: 1511692064}
   m_Layer: 0
   m_Name: chiron_Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6333795549866014786
 Transform:
   m_ObjectHideFlags: 0
@@ -24269,16 +24270,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6678268503856177917
+--- !u!114 &8807808995533074592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6678268503856177912}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea65b38d485c374caa584a03f1de571, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ecc2d5bc87cc10468d434cbed531cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_CarDriveType: 2
@@ -24298,29 +24299,38 @@ MonoBehaviour:
   - {fileID: 6781900800704887159}
   - {fileID: 6836654618224800842}
   m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 25
-  m_SteerHelper: 0.75
-  m_TractionControl: 1
+  m_MaximumSteerAngle: 30
+  m_SteerHelper: 0.2
+  m_TractionControl: 0
   m_FullTorqueOverAllWheels: 3000
-  m_ReverseTorque: 500
-  m_MaxHandbrakeTorque: 100000
+  m_ReverseTorque: 250
+  m_MaxHandbrakeTorque: 6000
   m_Downforce: 100
   m_SpeedType: 1
-  m_Topspeed: 250
+  m_Topspeed: 350
   m_RevRangeBoundary: 1
-  m_SlipLimit: 0.3
-  m_BrakeTorque: 20000
-  "ArkaFar\xDDsiklari": []
-  "OnFar\xDDsiklari": []
-  mevcutHiz: {fileID: 0}
-  mevcutVites: {fileID: 0}
+  m_SlipLimit: 0
+  m_BrakeTorque: 10000
+  ArkaFar: []
+  OnFar: []
+  SpawnPointIndex: 0
+  mevcuthiz: {fileID: 0}
+  mevcutvites: {fileID: 0}
   Kadran: {fileID: 0}
   Nitroslider: {fileID: 0}
   NitrodegerText: {fileID: 0}
-  NitroEfekt: {fileID: 0}
+  NitroEfekt: {fileID: 24584006604041761}
   Sesler:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6678268503856177918}
+  IsCurrentPlayer: 0
+  Target:
+  - {fileID: 24584008392847547}
+  - {fileID: 24584008171275260}
+  RaycastForward: {fileID: 24584006567279085}
+  "YonG\u0131d\u0131sIndex": 1
+  _waypointCircuit: {fileID: 0}
+  LastCheckPoint: {fileID: 0}
+  FloorChecker: {fileID: 0}
 --- !u!114 &6678268503856177916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24328,7 +24338,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6678268503856177912}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
   m_Name: 
@@ -24367,7 +24377,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2fd58bc334c1ed8408c01271302a85c8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b58deb45939264c46af3c59ff0ac12f2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.66
   m_Pitch: 1
@@ -24561,6 +24571,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78c4fe44926a794fa8100041e69479e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1511692064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678268503856177912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5cb22d331ef7d64796f917c6a455a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circuit: {fileID: 0}
+  lookAheadForTargetOffset: 5
+  lookAheadForTargetFactor: 0.1
+  lookAheadForSpeedOffset: 10
+  lookAheadForSpeedFactor: 0.2
+  progressStyle: 1
+  pointToPointThreshold: 4
+  target: {fileID: 24584006567279085}
 --- !u!1 &6781900800704887153
 GameObject:
   m_ObjectHideFlags: 0

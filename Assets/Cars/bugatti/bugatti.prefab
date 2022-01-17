@@ -23334,9 +23334,7 @@ GameObject:
   - component: {fileID: 1285401074048469854}
   - component: {fileID: 1285401074048469855}
   - component: {fileID: 1285401074048469857}
-  - component: {fileID: 1285401074048469858}
   - component: {fileID: 1285401074048469859}
-  - component: {fileID: 1285401074048469860}
   m_Layer: 0
   m_Name: bugatti
   m_TagString: Untagged
@@ -23529,12 +23527,13 @@ MonoBehaviour:
   Nitroslider: {fileID: 0}
   NitrodegerText: {fileID: 0}
   NitroEfekt: {fileID: 429377415}
-  Sesler: []
+  Sesler:
+  - {fileID: 1285401074048469854}
   IsCurrentPlayer: 1
   Target:
   - {fileID: 489824135}
   - {fileID: 676064486}
-  "G\u0131d\u0131sYonuIs\u0131n": {fileID: 467434742}
+  RaycastForward: {fileID: 467434742}
   "YonG\u0131d\u0131sIndex": 1
   _waypointCircuit: {fileID: 0}
   LastCheckPoint: {fileID: 0}
@@ -23563,69 +23562,7 @@ MonoBehaviour:
   maxRolloffDistance: 500
   dopplerLevel: 1
   useDoppler: 1
---- !u!114 &1285401074048469858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8775537253341722790}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea65b38d485c374caa584a03f1de571, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_CarDriveType: 2
-  m_WheelColliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  m_WheelMeshes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  m_WheelEffects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 0
-  m_SteerHelper: 0
-  m_TractionControl: 0
-  m_FullTorqueOverAllWheels: 0
-  m_ReverseTorque: 0
-  m_MaxHandbrakeTorque: 0
-  m_Downforce: 100
-  m_SpeedType: 0
-  m_Topspeed: 200
-  m_RevRangeBoundary: 1
-  m_SlipLimit: 0
-  m_BrakeTorque: 0
-  "ArkaFar\xDDsiklari": []
-  "OnFar\xDDsiklari": []
-  mevcutHiz: {fileID: 0}
-  mevcutVites: {fileID: 0}
-  Kadran: {fileID: 0}
-  Nitroslider: {fileID: 0}
-  NitrodegerText: {fileID: 0}
-  NitroEfekt: {fileID: 0}
-  Sesler: []
 --- !u!114 &1285401074048469859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8775537253341722790}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1285401074048469860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23634,7 +23571,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8775537253341722790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e78c4fe44926a794fa8100041e69479e, type: 3}
+  m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8808396089154625122

@@ -21336,12 +21336,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2258032596751446379}
   - component: {fileID: 1449582946627300299}
-  - component: {fileID: 1449582946627300300}
+  - component: {fileID: 6230987450689060912}
   - component: {fileID: 1449582946627300301}
   - component: {fileID: 1449582946627300302}
   - component: {fileID: 1449582946627300303}
   - component: {fileID: 1449582946627300304}
-  - component: {fileID: 873035853}
   m_Layer: 0
   m_Name: cayman_Normal
   m_TagString: Untagged
@@ -21391,16 +21390,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1449582946627300300
+--- !u!114 &6230987450689060912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449582946627300305}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea65b38d485c374caa584a03f1de571, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ecc2d5bc87cc10468d434cbed531cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_CarDriveType: 2
@@ -21421,28 +21420,37 @@ MonoBehaviour:
   - {fileID: 5065070774264446761}
   m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
   m_MaximumSteerAngle: 25
-  m_SteerHelper: 0.75
+  m_SteerHelper: 0.2
   m_TractionControl: 1
   m_FullTorqueOverAllWheels: 3000
-  m_ReverseTorque: 500
-  m_MaxHandbrakeTorque: 100000
-  m_Downforce: 100
+  m_ReverseTorque: 200
+  m_MaxHandbrakeTorque: 10000
+  m_Downforce: 200
   m_SpeedType: 1
-  m_Topspeed: 250
+  m_Topspeed: 280
   m_RevRangeBoundary: 1
-  m_SlipLimit: 0.3
-  m_BrakeTorque: 20000
-  "ArkaFar\xDDsiklari": []
-  "OnFar\xDDsiklari": []
-  mevcutHiz: {fileID: 0}
-  mevcutVites: {fileID: 0}
+  m_SlipLimit: 0.2
+  m_BrakeTorque: 10000
+  ArkaFar: []
+  OnFar: []
+  SpawnPointIndex: 0
+  mevcuthiz: {fileID: 0}
+  mevcutvites: {fileID: 0}
   Kadran: {fileID: 0}
   Nitroslider: {fileID: 0}
   NitrodegerText: {fileID: 0}
-  NitroEfekt: {fileID: 0}
+  NitroEfekt: {fileID: 275655263558407001}
   Sesler:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1449582946627300303}
+  IsCurrentPlayer: 0
+  Target:
+  - {fileID: 275655263030544256}
+  - {fileID: 275655262904927245}
+  RaycastForward: {fileID: 275655261868477894}
+  "YonG\u0131d\u0131sIndex": 1
+  _waypointCircuit: {fileID: 0}
+  LastCheckPoint: {fileID: 0}
+  FloorChecker: {fileID: 0}
 --- !u!114 &1449582946627300301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21450,7 +21458,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449582946627300305}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
   m_Name: 
@@ -21489,7 +21497,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cf4a927d7248d14488fe86b13f484639, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b58deb45939264c46af3c59ff0ac12f2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.66
   m_Pitch: 1
@@ -21671,18 +21679,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &873035853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449582946627300305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e78c4fe44926a794fa8100041e69479e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1968575420966070248
 GameObject:
   m_ObjectHideFlags: 0

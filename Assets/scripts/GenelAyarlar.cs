@@ -21,6 +21,8 @@ public class GenelAyarlar : MonoBehaviour
     public AudioSource[] sesler;
     public GameObject OyunSonuPanel;
 
+    public Transform[] CheckpointItems;
+
     public static GenelAyarlar master;
 
     //oyun müziðini oynat

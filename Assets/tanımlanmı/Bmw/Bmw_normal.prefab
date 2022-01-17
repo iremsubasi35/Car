@@ -378,12 +378,11 @@ GameObject:
   m_Component:
   - component: {fileID: 439692506679694283}
   - component: {fileID: 959771043436366207}
-  - component: {fileID: 959771043436366204}
+  - component: {fileID: 1098704797407059996}
   - component: {fileID: 959771043436366205}
   - component: {fileID: 959771043436366194}
   - component: {fileID: 959771043436366195}
   - component: {fileID: 959771043436366192}
-  - component: {fileID: 960250160}
   m_Layer: 0
   m_Name: Bmw_normal
   m_TagString: Untagged
@@ -425,7 +424,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959771043436366193}
   serializedVersion: 2
-  m_Mass: 1500
+  m_Mass: 2000
   m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -433,16 +432,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &959771043436366204
+--- !u!114 &1098704797407059996
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959771043436366193}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea65b38d485c374caa584a03f1de571, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ecc2d5bc87cc10468d434cbed531cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_CarDriveType: 2
@@ -462,29 +461,38 @@ MonoBehaviour:
   - {fileID: 8552045420327726529}
   - {fileID: 4935993421476182315}
   m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 25
-  m_SteerHelper: 0.75
-  m_TractionControl: 1
-  m_FullTorqueOverAllWheels: 1000
-  m_ReverseTorque: 500
-  m_MaxHandbrakeTorque: 100000
-  m_Downforce: 100
+  m_MaximumSteerAngle: 20
+  m_SteerHelper: 0.2
+  m_TractionControl: 0.5
+  m_FullTorqueOverAllWheels: 2000
+  m_ReverseTorque: 400
+  m_MaxHandbrakeTorque: 12000
+  m_Downforce: 200
   m_SpeedType: 1
-  m_Topspeed: 120
+  m_Topspeed: 330
   m_RevRangeBoundary: 1
-  m_SlipLimit: 0.3
-  m_BrakeTorque: 20000
-  "ArkaFar\xDDsiklari": []
-  "OnFar\xDDsiklari": []
-  mevcutHiz: {fileID: 0}
-  mevcutVites: {fileID: 0}
+  m_SlipLimit: 0.2
+  m_BrakeTorque: 12000
+  ArkaFar: []
+  OnFar: []
+  SpawnPointIndex: 0
+  mevcuthiz: {fileID: 0}
+  mevcutvites: {fileID: 0}
   Kadran: {fileID: 0}
   Nitroslider: {fileID: 0}
   NitrodegerText: {fileID: 0}
-  NitroEfekt: {fileID: 0}
+  NitroEfekt: {fileID: 4983919587565942083}
   Sesler:
   - {fileID: 959771043436366195}
-  - {fileID: 959771043436366192}
+  IsCurrentPlayer: 1
+  Target:
+  - {fileID: 4983919586013423589}
+  - {fileID: 4983919587144793947}
+  RaycastForward: {fileID: 4983919587124475063}
+  "YonG\u0131d\u0131sIndex": 1
+  _waypointCircuit: {fileID: 0}
+  LastCheckPoint: {fileID: 0}
+  FloorChecker: {fileID: 0}
 --- !u!114 &959771043436366205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,7 +500,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959771043436366193}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
   m_Name: 
@@ -531,7 +539,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2fd58bc334c1ed8408c01271302a85c8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b58deb45939264c46af3c59ff0ac12f2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.66
   m_Pitch: 1
@@ -713,18 +721,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &960250160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959771043436366193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e78c4fe44926a794fa8100041e69479e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1217178558322743798
 GameObject:
   m_ObjectHideFlags: 0
@@ -23974,7 +23970,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5222390383085891112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.61, z: -0.217}
+  m_LocalPosition: {x: 0, y: 1.16, z: -0.217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 439692506679694283}

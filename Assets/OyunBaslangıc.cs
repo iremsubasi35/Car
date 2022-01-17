@@ -9,17 +9,6 @@ public class OyunBaslangıc : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-
-        if (oyunbaslangıc==null)
-        {
-            oyunbaslangıc = this;
-
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
     void Start()
     {

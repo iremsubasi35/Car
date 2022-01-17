@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 using UnityStandardAssets.Utility;
+using UnityStandardAssets.Vehicles.Car;
 
 
 public class araba
@@ -13,12 +14,16 @@ public class araba
     public int pozisyon;
     public WaypointProgressTracker ProgressTracker;
     public bool IsPlayer = false;
+    public YapayZekaController mController;
+    public int TotalCheckpointTick => mController.CheckpointTouched.Count;
+    public float Completion => (mController.CheckpointTouched.Count * 1f) / (GenelAyarlar.master.CheckpointItems.Length * 1f);
 
     public araba(GameObject disgelenobje, int dispozisyon)
     {
         gelenobje = disgelenobje;
         pozisyon = dispozisyon;
         ProgressTracker = disgelenobje.transform.parent.GetComponent<WaypointProgressTracker>();
+        mController = disgelenobje.transform.parent.GetComponent<YapayZekaController>();
         IsPlayer = disgelenobje.name.Equals("biz");
     }
 }
@@ -45,7 +50,7 @@ public class SiralamaManager : MonoBehaviour
         {
             timer = 0.5f;
             // var playerObject = arabalar.Find(x => x.IsPlayer);
-            arabalar = arabalar.OrderByDescending(x => x.ProgressTracker.Completion).ToList();
+            arabalar = arabalar.OrderByDescending(x => x.Completion).ThenByDescending(x => x.mController.FinishTimer).ToList();
             var playerIndex = arabalar.FindIndex(x => x.IsPlayer);
             sira.text = $"{playerIndex+1}/{arabalar.Count}";
         }
