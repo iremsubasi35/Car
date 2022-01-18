@@ -50,7 +50,7 @@ public class SiralamaManager : MonoBehaviour
         {
             timer = 0.5f;
             // var playerObject = arabalar.Find(x => x.IsPlayer);
-            arabalar = arabalar.OrderByDescending(x => x.Completion).ThenByDescending(x => x.mController.FinishTimer).ToList();
+            arabalar = arabalar.OrderBy(x => x.mController.FinishTimer).ThenByDescending(x => x.Completion).ToList();
             var playerIndex = arabalar.FindIndex(x => x.IsPlayer);
             sira.text = $"{playerIndex+1}/{arabalar.Count}";
         }

@@ -19,8 +19,8 @@ namespace UnityStandardAssets.Vehicles.Car
             while (counter > 0)
             {
                 int.TryParse(StartPointsForAI[counter - 1].name, out var spawnPoint);
-                var arac = pickRandom[counter];
-                arac.SpawnPointIndex = spawnPoint;
+                var arac = Instantiate(pickRandom[counter].gameObject);
+                arac.GetComponent<YapayZekaController>().SpawnPointIndex = spawnPoint;
                 arac.transform.position = StartPointsForAI[counter - 1].position;
                 arac.gameObject.SetActive(true);
                 counter--;

@@ -237,7 +237,7 @@ namespace UnityStandardAssets.Vehicles.Car
             {
                 m_Rigidbody.Sleep();
                 var randFloat = Random.Range(-4f, 4f);
-                var pos = LastCheckPoint.localPosition +new Vector3(randFloat, 1f, 0);
+                var pos = LastCheckPoint.position +new Vector3(randFloat, 1f, 0);
                 transform.position = pos;
                 transform.rotation = LastCheckPoint.rotation;
                 // transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
@@ -247,6 +247,18 @@ namespace UnityStandardAssets.Vehicles.Car
         private void OnEnable()
         {
             m_Rigidbody = GetComponent<Rigidbody>();
+            
+            EventManager.OnPlayerFinish += onPlayerFinished;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.OnPlayerFinish -= onPlayerFinished;
+        }
+
+        private void onPlayerFinished()
+        {
+            canMove = false;
         }
 
         private void GearChanging()
@@ -400,6 +412,11 @@ namespace UnityStandardAssets.Vehicles.Car
 
             if (other.CompareTag("FinishLine"))
             {
+                if (IsCurrentPlayer)
+                {
+                    EventManager.OnPlayerFinish?.Invoke();
+                }
+                
                 if (CheckpointTouched.Count > GenelAyarlar.master.CheckpointItems.Length / 2)
                 {
                     FinishTimer = Time.time;

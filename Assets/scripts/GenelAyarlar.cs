@@ -22,20 +22,30 @@ public class GenelAyarlar : MonoBehaviour
     public GameObject OyunSonuPanel;
 
     public Transform[] CheckpointItems;
-
     public static GenelAyarlar master;
 
     //oyun müziðini oynat
-
     public GameObject SpawnPoint;
-
     private CameraControl camControl;
-
     public GameObject TersYonObject;
 
     private void OnEnable()
     {
         master = this;
+
+        EventManager.OnPlayerFinish += onPlayerFinished;
+    }
+    
+    private void OnDisable()
+    {
+        EventManager.OnPlayerFinish -= onPlayerFinished;
+    }
+
+    private void onPlayerFinished()
+    {
+        var siralamaManager = GetComponent<SiralamaManager>();
+        var playerIndex = siralamaManager.arabalar.FindIndex(x => x.IsPlayer);
+        OyunSonu(playerIndex);
     }
 
     void Start()
