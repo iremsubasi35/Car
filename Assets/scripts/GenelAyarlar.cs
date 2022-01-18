@@ -69,7 +69,7 @@ public class GenelAyarlar : MonoBehaviour
 
     public void OyunSonu(int pozisyon)
     {
-        OyunSonuPanel.transform.Find("SonucPanel/Panel/sıra").GetComponent<TextMeshProUGUI>().text = pozisyon.ToString() + ". Bitirdin.";
+        OyunSonuPanel.transform.Find("Panel/sıra").GetComponent<TextMeshProUGUI>().text = (pozisyon+1).ToString() + ". Bitirdin.";
         OyunSonuPanel.SetActive(true);
     }
 

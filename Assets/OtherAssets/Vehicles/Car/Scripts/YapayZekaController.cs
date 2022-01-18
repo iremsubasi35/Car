@@ -95,7 +95,7 @@ namespace UnityStandardAssets.Vehicles.Car
         public Image Nitroslider;
         public Text NitrodegerText;
         float nitrodeger = 100;
-        bool NitroDurumu = false;
+        bool NitroPressed = false;
 
         // EGZOZ ��LEMLER�
         public GameObject NitroEfekt;
@@ -103,7 +103,10 @@ namespace UnityStandardAssets.Vehicles.Car
         public bool IsCurrentPlayer = false;
 
         public Transform[] Target;
-        [FormerlySerializedAs("GıdısYonuIsın")] public Transform RaycastForward;
+
+        [FormerlySerializedAs("GıdısYonuIsın")]
+        public Transform RaycastForward;
+
         public int YonGıdısIndex = 1;
 
         [SerializeField] private WaypointCircuit _waypointCircuit;
@@ -149,8 +152,8 @@ namespace UnityStandardAssets.Vehicles.Car
             NitrodegerText = GameObject.FindWithTag("NitroDeger").GetComponent<Text>();
 
             NitrodegerText.text = Mathf.CeilToInt(nitrodeger).ToString();
-            
-            if(IsCurrentPlayer)
+
+            if (IsCurrentPlayer)
                 activateCamera();
         }
 
@@ -204,11 +207,11 @@ namespace UnityStandardAssets.Vehicles.Car
         private void CheckIfCarFlipped()
         {
             if (IsCurrentPlayer) return;
-            
+
             flipTimer -= Time.deltaTime;
             if (flipTimer < 0f)
             {
-                flipTimer = 1f;
+                flipTimer = Random.Range(1f, 3f);
                 var collidedRoad = Physics.OverlapSphere(FloorChecker.position, 0.5f, 1 << 10);
 
                 if (collidedRoad.Length == 0 && !resetNextTime)
@@ -227,7 +230,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
         private void OnDrawGizmos()
         {
-            if(FloorChecker)
+            if (FloorChecker)
                 Gizmos.DrawSphere(FloorChecker.position, 0.5f);
         }
 
@@ -237,7 +240,7 @@ namespace UnityStandardAssets.Vehicles.Car
             {
                 m_Rigidbody.Sleep();
                 var randFloat = Random.Range(-4f, 4f);
-                var pos = LastCheckPoint.position +new Vector3(randFloat, 1f, 0);
+                var pos = LastCheckPoint.position + new Vector3(randFloat, 1f, 0);
                 transform.position = pos;
                 transform.rotation = LastCheckPoint.rotation;
                 // transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
@@ -247,7 +250,7 @@ namespace UnityStandardAssets.Vehicles.Car
         private void OnEnable()
         {
             m_Rigidbody = GetComponent<Rigidbody>();
-            
+
             EventManager.OnPlayerFinish += onPlayerFinished;
         }
 
@@ -406,7 +409,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 {
                     CheckpointTouched.Add(other.transform);
                 }
-                
+
                 LastCheckPoint = other.transform;
             }
 
@@ -416,7 +419,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 {
                     EventManager.OnPlayerFinish?.Invoke();
                 }
-                
+
                 if (CheckpointTouched.Count > GenelAyarlar.master.CheckpointItems.Length / 2)
                 {
                     FinishTimer = Time.time;
@@ -426,64 +429,67 @@ namespace UnityStandardAssets.Vehicles.Car
 
         void NitroKullan()
         {
-            if (!IsCurrentPlayer) return;
+            if (!IsCurrentPlayer || nitrodeger <= 0f) return;
 
-            if (Input.GetKey(KeyCode.V))
+            if (Input.GetKeyDown(KeyCode.V))
             {
-                if (!NitroDurumu)
-                {
-                    NitroEfekt.SetActive(true);
-                    m_Rigidbody.velocity += 0.2f * m_Rigidbody.velocity.normalized;
-                    nitrodeger -= 2;
-                    NitrodegerText.text = "HAZIR";
-
-                    Nitroslider.fillAmount = nitrodeger / 100;
-                    if (!Sesler[0].isPlaying)
-                    {
-                        Sesler[0].Play();
-                    }
-                    
-                    NitrodegerText.text = Mathf.CeilToInt(nitrodeger).ToString();
-                }
-
-                if (nitrodeger <= 0)
-                {
-                    NitroEfekt.SetActive(false);
-                    nitrodeger = 0;
-                    NitroDurumu = true;
-                    NitrodegerText.text = Mathf.CeilToInt(nitrodeger).ToString();
-                    return;
-                }
+                NitroPressed = true;
             }
 
             if (Input.GetKeyUp(KeyCode.V))
             {
                 NitroEfekt.SetActive(false);
-                NitroDurumu = true;
+                NitroPressed = false;
+            }
+
+            if (NitroPressed)
+            {
+                NitroEfekt.SetActive(true);
+                m_Rigidbody.velocity += 0.2f * m_Rigidbody.velocity.normalized;
+                nitrodeger -= 1;
+                NitrodegerText.text = "HAZIR";
+
+                Nitroslider.fillAmount = nitrodeger / 100;
+                if (!Sesler[0].isPlaying)
+                {
+                    Sesler[0].Play();
+                }
+
+                NitrodegerText.text = Mathf.CeilToInt(nitrodeger).ToString();
+            }
+
+            if (nitrodeger <= 0)
+            {
+                NitroEfekt.SetActive(false);
+                nitrodeger = 0;
+                NitroPressed = false;
+                NitrodegerText.text = Mathf.CeilToInt(nitrodeger).ToString();
+                return;
             }
         }
-        
+
         #region Camera Controller
 
         private int activeCameraId = 0;
+
         void activateCamera()
         {
             if (!IsCurrentPlayer) return;
-            
+
             foreach (var cam in Target)
                 cam.gameObject.SetActive(false);
-        
+
             Target[activeCameraId].gameObject.SetActive(true);
         }
 
         public void NextCamera()
         {
             if (!IsCurrentPlayer) return;
-        
+
             activeCameraId = (activeCameraId + 1) % Target.Length;
             activateCamera();
         }
-        
+
         #endregion
 
         void FrenYap()
