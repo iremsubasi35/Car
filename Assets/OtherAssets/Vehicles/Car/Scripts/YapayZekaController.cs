@@ -157,6 +157,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 activateCamera();
         }
 
+        bool tersYon = false;
 
         void Update()
         {
@@ -167,29 +168,29 @@ namespace UnityStandardAssets.Vehicles.Car
             NitroKullan();
             AraciDuzelt();
             CamraToggle();
-
+            CheckRightSideForDirection();
 
             if (IsCurrentPlayer)
             {
-                RaycastHit hit;
-                if (Physics.Raycast(RaycastForward.position, RaycastForward.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
-                {
-                    if (hit.transform.CompareTag("YonBul"))
-                    {
-                        if (YonGıdısIndex > int.Parse(hit.transform.gameObject.name))
-                        {
-                            GenelAyarlar.master.TersYonObject.SetActive(true);
-                        }
-                        else
-                        {
-                            YonGıdısIndex = int.Parse(hit.transform.gameObject.name);
-                            GenelAyarlar.master.TersYonObject.SetActive(false);
-                        }
-                    }
-                }
-
-                Debug.DrawRay(RaycastForward.position, RaycastForward.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             }
+        }
+
+        private void CheckRightSideForDirection()
+        {
+            var raycast = new []
+            {
+                transform.right , transform.right + transform.forward, transform.right + -transform.forward, transform.right + (transform.up / 3f)
+            };
+
+            int totalhit = 0;
+            foreach (var rayCalc in raycast)
+            {
+                var checkRightside = Physics.Raycast(transform.position, rayCalc, 60, 1 << 20);
+                if (checkRightside) totalhit++;
+                Debug.DrawLine(transform.position,transform.position + rayCalc * 60f, Color.green);
+            }
+            
+            GenelAyarlar.master.TersYonObject.SetActive(totalhit == 0);
         }
 
         private void CamraToggle()
@@ -413,7 +414,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 LastCheckPoint = other.transform;
             }
 
-            if (other.CompareTag("FinishLine"))
+            if (other.CompareTag("FinishLine") && CheckpointTouched.Count > 30)
             {
                 if (IsCurrentPlayer)
                 {
