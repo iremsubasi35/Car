@@ -116,7 +116,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
         // Store checkpoints
         public List<Transform> CheckpointTouched = new List<Transform>();
-        public float FinishTimer = 0f;
+        public float FinishTimer = 100000f;
 
 
         // Use this for initialization
