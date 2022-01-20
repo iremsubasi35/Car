@@ -13,9 +13,6 @@ public class OyunBaslangıc : MonoBehaviour
     void Start()
     {
         menusesi = GetComponent<AudioSource>();
-        
-
-        
 
         if (PlayerPrefs.HasKey("menuses"))
         {
