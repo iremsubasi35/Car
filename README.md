@@ -9,6 +9,7 @@ Quality, main menu sound and game sound are adjusted.
 
 # Car Choise
 It is possible to start the race with 3 cars by choosing one of 6 cars. 
+[![alt text](https://i9.ytimg.com/vi/lpmlJGQ6auI/mq2.jpg?sqp=CJjL2o8G&rs=AOn4CLByByioOYUtEbqOc9GTGMG50aRoBw)](https://www.youtube.com/watch?v=lpmlJGQ6auI)
 
 # The Gamer
 There will be a countdown to the start of the race.
@@ -16,11 +17,16 @@ The speedometer of the vehicle is located at the bottom right.
 The nitro dial provides acceleration as long as the "v" button is pressed. Starts at 100 units and does not refresh when finished 
 There is a reverse direction panel that is activated when you go in the opposite direction on the road. 
 
+
 [![alt text](https://i9.ytimg.com/vi/P_Sdg6lH8xg/mq2.jpg?sqp=COzI2o8G&rs=AOn4CLANzgmZYMwRUjwiZhaU85HzgQsyVw)](https://www.youtube.com/watch?v=P_Sdg6lH8xg)
+
 
 If the vehicle rolls over, it can occur in an area close to the location found by pressing the "R" key. 
 The vehicle has 2 separate cameras. Switching with the "C" key. 
+
+
 [![alt text](https://i9.ytimg.com/vi/xJAWYFx1_U8/mq2.jpg?sqp=CJjL2o8G&rs=AOn4CLAToRVTiLpg9oVElN10uX_dFPD4cg)](https://www.youtube.com/watch?v=xJAWYFx1_U8)
+
 
 # AI CAR
 When artificial intelligence vehicles crash, they detect and correct themselves and return to the race. 
