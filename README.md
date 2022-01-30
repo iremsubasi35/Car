@@ -9,7 +9,9 @@ Quality, main menu sound and game sound are adjusted.
 
 # Car Choise
 It is possible to start the race with 3 cars by choosing one of 6 cars. 
+
 [![alt text](https://i9.ytimg.com/vi/lpmlJGQ6auI/mq2.jpg?sqp=CJjL2o8G&rs=AOn4CLByByioOYUtEbqOc9GTGMG50aRoBw)](https://www.youtube.com/watch?v=lpmlJGQ6auI)
+
 
 # The Gamer
 There will be a countdown to the start of the race.
